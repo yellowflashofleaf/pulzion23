@@ -39,6 +39,7 @@
     "typewriter-effect": "^2.18.2",
     "yup": "^0.32.11"
   },
+  "packageManager": "yarn@3.2.4",
   "devDependencies": {
     "autoprefixer": "^10.4.4",
     "postcss": "^8.4.12",
