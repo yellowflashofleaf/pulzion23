@@ -268,29 +268,6 @@ const Card = ({ title, description, image }) => {
   );
 };
 
-const AboutUs = () => {
-  return (
-    <Layout>
-      <Head>
-        <title>About Us | PICT ACM Student Chapter</title>
-      </Head>
-      <div className={styles.container}>
-        <SectionHeading>Who We Are</SectionHeading>
-        <div className={styles.cards}>
-          {ABOUT_US_CARDS.map((card, index) => (
-            <Card
-              key={index}
-              title={card.title}
-              description={card.description}
-              image={card.image}
-            />
-          ))}
-        </div>
-      </div>
-    </Layout>
-  );
-};
-
 const SocialMedia = () => {
   const Icon = ({ Component, link }) => {
     return (
@@ -313,7 +290,7 @@ const SocialMedia = () => {
     </div>
   );
 };
-const Address = () => {};
+
 const ContactUs = () => {
   return (
     <div>

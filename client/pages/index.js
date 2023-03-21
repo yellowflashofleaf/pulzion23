@@ -59,11 +59,11 @@ export default function Home() {
         className={` flex flex-col items-center justify-center pb-5 ${exploring ? "" : "relative"
           }  `}
         style={{
-          paddingTop: "0vh",
+          paddingTop: "10vh",
         }}
       >
         <div
-          className={`flex flex-col items-center justify-center gap-4 max-w-7xl w-11/12 mx-auto`}
+          className={`flex flex-col items-center justify-center gap-6 max-w-7xl w-11/12 mx-auto`}
         >
           <p className="text-3xl font-bold tracking-wide text-center text-primaries-100 md:text-5xl">
             PICT ACM Student Chapter
@@ -79,24 +79,11 @@ export default function Home() {
           <p className="items-center justify-center my-5 text-2xl font-bold tracking-wide text-center text-primaries-100 md:text-3xl">
             An annual techfest of PICT ACM Student Chapter
           </p>
-          <div className="text-center">
-            {/* <Typewriter
-              options={{
-                strings: ["Celebrating 10 years of success..."],
-                autoStart: true,
-                loop: true,
-                wrapperClassName:
-                  "text-primaries-300 font-bold text-2xl md:text-3xl tracking-wide text-center items-center justify-center",
-                delay: 50,
-                cursorClassName: "text-center",
-              }}
-            /> */}
-          </div>
-          <div className="flex flex-row items-center justify-center gap-4 text-2xl font-bold md:-mt-10 md:gap-6 text-primaries-100 md:text-5xl">
+          <div className="flex flex-row items-center justify-center gap-4 text-2xl font-bold md:gap-6 text-primaries-100 md:text-5xl">
             <IoCalendarOutline /> <p>12th, 13th &amp; 14th April</p>
           </div>
 
-          <div className="flex flex-col gap-4 sm:flex sm:flex-row">
+          <div className="flex flex-col gap-6 xl:mt-5 sm:flex sm:flex-row">
             <button
               class="primary-button"
               style={{backgroundImage: "linear-gradient(to right, #172947c5, black)" ,opacity : 0.95, position:"relative", borderWidth: "2px", borderStyle: "solid", borderRadius: "550px", width: "250px", height: "48px", overflow: "hidden", backgroundColor: "transparent", textTransform: "uppercase", color:"white", fontWeight: "700px"}}

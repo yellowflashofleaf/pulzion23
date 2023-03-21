@@ -49,11 +49,11 @@ const Header = () => {
         text: "Glimpses",
         to: "/glimpses",
       },
-      // {
-      //   id: 7,
-      //   text: "Cart",
-      //   to: "/cart",
-      // },
+      {
+        id: 7,
+        text: "Cart",
+        to: "/cart",
+      },
     ])
     : (links = [
       {
@@ -97,7 +97,7 @@ const Header = () => {
       console.log(e);
     }
   };
-
+  console.log(router.pathname)
   return (
     <>
       <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet"></link>
@@ -105,30 +105,19 @@ const Header = () => {
         <div className="flex items-center justify-between gap-2">
           <div>
             <Link href="/">
-              <img src="/logo.png" className="h-6 cursor-pointer" />
+              <img src="/logo.png" className="cursor-pointer min-h-[25px] lg:max-h-12 max-h-6" />
             </Link>
           </div>
-          <div className="items-center hidden xl:flex lg-gap-1 nav-font">
+          <div className="w-8"></div>
+          <div className="items-center hidden xl:ml-auto xl:flex lg-gap-1 nav-font">
             {links.map((link) => (
               <Link href={link.to} key={link.id.toString()}>
                 <span
-                  className={`text-primaries-100 text-xl cursor-pointer ease-in-out duration-300 px-5 py-1 border-2 rounded-full text-center ${router.pathname === link.to
-                    ? "border-primaries-100"
-                    : "border-transparent"
+                  className={`text-primaries-100 text-xl cursor-pointer ease-in-out duration-300 px-5 py-1 border-2 rounded-full text-center ${link.text === "Cart" ? "hidden" : ""}  ${router.pathname ===  link.to ? 
+                     "border-primaries-100" : "border-transparent"
                     }`}
                 >
-                  {link.text
-                    // <span
-                    //   className={`text-primaries-100 xl:block text-xl cursor-pointer ease-in-out duration-300 px-5 py-1 border-2 rounded-full text-center ${router.pathname === "/cart"
-                    //     ? "border-primaries-100"
-                    //     : "border-transparent"
-                    //     }`}
-                    // >
-                    // <i after={cart.length} className="after:content-[attr(after)] after:-top-7 after:bg-black after:text-[#51d8f0] after:italic after:text-center after:rounded-xl after:text-lg after:-right-1 after:w-10 after:relative">
-                    //   <AiOutlineShoppingCart className="relative text-4xl top-4" />
-                    // </i>
-                    // </span>
-                  }
+                  {link.text}
                 </span>
               </Link>
             ))}
@@ -167,13 +156,10 @@ const Header = () => {
           {user?.id ?
             <Link href={"/cart"} key={"7"}>
               <span
-                className={`text-primaries-100 text-xl cursor-pointer ease-in-out duration-300 px-5 py-1 border-2 rounded-full text-center ${router.pathname === "/cart"
-                  ? "border-primaries-100"
-                  : "border-transparent"
-                  }`}
+                className={`text-primaries-100 xl:block hidden text-xl cursor-pointer ease-in-out duration-300 px-5 py-1 border-2 rounded-full text-center border-transparent`}
               >
-                <i after={cart.length} className="after:content-[attr(after)] after:-top-7 after:bg-black after:text-[#51d8f0] after:italic after:text-center after:rounded-xl after:text-lg after:-right-1 after:w-10 after:relative">
-                  <AiOutlineShoppingCart className="relative text-4xl text-white top-4" />
+                <i after={cart.length} className="after:content-[attr(after)] after:-top-7 lg:after:-top-10 lg:after:text-2xl after:bg-black after:text-[#51d8f0] after:italic after:text-center after:rounded-xl after:text-lg after:-right-1 after:w-10 after:relative">
+                  <AiOutlineShoppingCart className="relative text-4xl text-white lg:text-5xl top-4" />
                 </i>
               </span>
             </Link>

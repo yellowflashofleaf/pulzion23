@@ -6,10 +6,11 @@ import { handlePayment } from "../action/payment.js";
 import Script from "next/script";
 import Layout from "../Components/Layout";
 import PaymentForm from "../Components/PaymentForm";
+import SectionHeading from "../Components/SectionHeading";
 
 const CartPage = () => {
   const { cart } = useCartContext();
-  console.log("cart",cart)
+  console.log("cart",cart.length)
   const { removeItem } = useCartContext();
   const [visible,setVisible] = useState(false);
   let total = [];
@@ -22,7 +23,7 @@ const CartPage = () => {
       <div className="">
         {/* <Header /> */}
         <h1 className="mt-[50px] text-3xl font-black text-center uppercase sm:text-4xl md:text-5xl text-sky-400 list-none">
-          Events Cart
+          <SectionHeading>Events Cart</SectionHeading>
         </h1>
         <div className="flex flex-col h-full mt-4 list-none sm:flex sm:flex-row sm:gap-2">
           <ul className="m-5 p-4 sm:w-[70%] divide-y"
@@ -62,7 +63,7 @@ const CartPage = () => {
                   </div>
                 </div>
               </li>
-            )): <></>}
+            )): <p className="relative top-[30%] text-white text-4xl text-center">Your Cart Is Empty</p>}
           </ul>
 
           <div
