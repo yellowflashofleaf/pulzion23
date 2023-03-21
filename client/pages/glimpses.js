@@ -55,7 +55,7 @@ const PreviousGlimpses = () => {
                 return (
                   image.Key.startsWith("thumbnail") && image.Size > 0 && (
                     <a
-                      href={`https://pulzion-website-images.s3.ap-south-1.amazonaws.com/${image.Key}`}
+                      href={`https://pulzion-website-images.s3.ap-south-1.amazonaws.com/${image.Key.replace('thumbnail', 'original')}`}
                       key={image.key}
                     >
                       <Image
