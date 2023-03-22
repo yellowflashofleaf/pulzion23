@@ -60,7 +60,7 @@ const CartPage = () => {
                 <div className="grid grid-cols-4 gap-8 sm:p-10">
                   <div>
                     <img
-                      // src={product.logo}
+                      src={product.logo}
                       alt="{product.imageAlt}"
                       className="w-24 h-12 rounded-lg sm:w-40 sm:h-32"
                     />
