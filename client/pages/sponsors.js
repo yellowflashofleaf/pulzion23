@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <Layout>
       <Head>
-        <title>Pulzion'22 | Sponsors</title>
+        <title>Pulzion'23 | Sponsors</title>
       </Head>
       <div className="flex flex-col items-center justify-center w-full gap-4 mt-10 text-center md:mt-20 md:gap-8">
         <p className="text-3xl font-bold text-center md:text-5xl text-primaries-100">

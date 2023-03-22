@@ -1,6 +1,6 @@
 
 
-# Pulzion'22 EMS Frontend!
+# Pulzion'23 EMS Frontend!
 This is a basic starter template for a Next.js project with chakra ui support out of the box.
 
 ## Getting Started

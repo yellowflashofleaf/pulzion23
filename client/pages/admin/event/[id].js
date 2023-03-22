@@ -58,7 +58,7 @@ const Event = () => {
   return event?.id ? (
     <AdminLayout>
       <Head>
-        <title>Pulzion'22 | Admin</title>
+        <title>Pulzion'23 | Admin</title>
       </Head>
       <div>
         {edit && <EventFormModal event={event} setOpen={setEdit} handleSubmit={handleUpdate} />}

@@ -68,7 +68,7 @@ const Registerations = () => {
   return (
     <AdminLayout>
       <Head>
-        <title>Pulzion'22 | Admin</title>
+        <title>Pulzion'23 | Admin</title>
       </Head>
       <div>
         <div className="grid">

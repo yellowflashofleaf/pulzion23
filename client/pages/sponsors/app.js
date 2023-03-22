@@ -9,7 +9,7 @@ export default function Home() {
     <div className="bg-primaries-700 min-h-screen">
           <Head>
         <title>
-          Pulzion'22 | Sponsors
+          Pulzion'23 | Sponsors
         </title>
         <meta name='description' content="Pulzion is the annual flagship event organized by PICT ACM
 				Student Chapter (PASC). Pulzion consists of multiple events in

@@ -110,7 +110,7 @@ const TeamPage = () => {
   return (
     <Layout>
       <Head>
-        <title>Pulzion'22 | Team</title>
+        <title>Pulzion'23 | Team</title>
         <meta name='description' content="Pulzion is the annual flagship event organized by PICT ACM
 				Student Chapter (PASC). Pulzion consists of multiple events in
 				technical as well as non-technical domains including coding
