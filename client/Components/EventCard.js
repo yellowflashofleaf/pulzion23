@@ -97,7 +97,6 @@ function EventCard(props) {
     }
     setLoading(false);
   };
-  // console.log("line no. 98", props);
 
   return (
     <div className="flex flex-col items-center py-5 card bg-primaries-800">

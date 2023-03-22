@@ -7,10 +7,10 @@ import Script from "next/script";
 import Layout from "../Components/Layout";
 import PaymentForm from "../Components/PaymentForm";
 import SectionHeading from "../Components/SectionHeading";
+import { getEventFromCart } from "../action/cart";
 
 const CartPage = () => {
-  const { cart } = useCartContext();
-  console.log("cart",cart.length)
+  const [cart,getCart] = useState([])
   const { removeItem } = useCartContext();
   const [visible,setVisible] = useState(false);
   let total = [];
@@ -18,10 +18,25 @@ const CartPage = () => {
     setVisible(!visible);
   }
   
+  useEffect(()=> {
+    (
+      async () => {
+        try {
+          const res = await getEventFromCart();
+          console.log("In cart res",res.data.events[0].id)
+          getCart(res.data.events)
+        } catch (e) {
+          console.log(e)
+        }
+      }
+    )();
+  },[])
+
+  console.log("In Cart",cart)
+
   return (
     <Layout>
       <div className="">
-        {/* <Header /> */}
         <h1 className="mt-[50px] text-3xl font-black text-center uppercase sm:text-4xl md:text-5xl text-sky-400 list-none">
           <SectionHeading>Events Cart</SectionHeading>
         </h1>
@@ -34,27 +49,28 @@ const CartPage = () => {
             }}
           >
             {cart.length != 0 ?
-            cart.map((product) => (
+            cart.map((product) => ( 
               <li>
-                {total.push(product.amount)}
-                {/* {console.log("Id ",product.id)} */}
+                {/* {total.push(product.price)} */}
+                {console.log("Id ",product.id)}
                 <div className="grid grid-cols-4 gap-8 sm:p-10">
                   <div>
                     <img
-                      src={product.logo}
+                      // src={product.logo}
                       alt="{product.imageAlt}"
                       className="w-24 h-12 rounded-lg sm:w-40 sm:h-32"
                     />
                   </div>
                   <div className="text-white">{product.name}</div>
-                  <div className="text-white sm:float-right">₹ {product.amount}</div>
+                  <div className="text-white sm:float-right">₹ {product.price}</div>
                   <div className="text-white">
                     <button
                       type="button"
                       className="ml-0 text-xs text-white sm:text-sm sm:font-medium hover:text-sky-400 sm:ml-0"
                       onClick={async () => {
+                        let item = cart.filter(item => item.id != product.id)
+                        getCart(item)
                         await removeItem(product.id);
-                        total.filter((price) => price.id === product.id);
                       }}
                     >
                       {/* <span>Remove</span> */}
@@ -110,8 +126,8 @@ const CartPage = () => {
             (accumulator, currentValue) => accumulator + currentValue,
             0
           )}
-        />
-      </div>
+         /> 
+       </div> 
     </Layout>
   );
 };

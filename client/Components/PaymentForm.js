@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { paymentForm } from "../action/paymentForm";
 import { useRouter } from "next/router";
 import { useCartContext } from "../context/CartContext";
+import { clearEvents } from "../action/cart";
 
 export default function PaymentForm(props) {
   const [transactionId, setTransactionId] = useState("");
@@ -22,6 +23,7 @@ export default function PaymentForm(props) {
       if (transactionId === "") toast.error("Transaction Id can't be empty");
       else {
         const data = await paymentForm(transactionId);
+        const res = await clearEvents();
         console.log("line no.22", data);
         if (data.status === 200) {
           toast.success("Successfully Registered");

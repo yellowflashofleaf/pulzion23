@@ -11,7 +11,7 @@ export const paymentForm = async (props) => {
 
   const options = {
     method: "POST",
-    url: `${apiConfig.url}/payment_form/`,
+    url: `${apiConfig.url}/transaction`,
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${pulzion.token}`,
