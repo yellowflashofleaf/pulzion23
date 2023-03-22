@@ -7,13 +7,12 @@ import Script from "next/script";
 import Layout from "../Components/Layout";
 import PaymentForm from "../Components/PaymentForm";
 import SectionHeading from "../Components/SectionHeading";
-import { getEventFromCart } from "../action/cart";
+import { deleteFromCart, getEventFromCart } from "../action/cart";
+import { toast } from "react-toastify";
 
 const CartPage = () => {
-  const [cart,getCart] = useState([])
-  const { removeItem } = useCartContext();
+  const [cart, setCart] = useState([])
   const [visible,setVisible] = useState(false);
-  let total = [];
   function open() {
     setVisible(!visible);
   }
@@ -23,8 +22,10 @@ const CartPage = () => {
       async () => {
         try {
           const res = await getEventFromCart();
-          console.log("In cart res",res.data.events[0].id)
-          getCart(res.data.events)
+          if(res?.error) {
+            return;
+          }
+          setCart(res.events)
         } catch (e) {
           console.log(e)
         }
@@ -32,7 +33,10 @@ const CartPage = () => {
     )();
   },[])
 
-  console.log("In Cart",cart)
+  let total = 0;
+  cart.forEach((item) => {
+    total += item.price
+  })
 
   return (
     <Layout>
@@ -68,9 +72,13 @@ const CartPage = () => {
                       type="button"
                       className="ml-0 text-xs text-white sm:text-sm sm:font-medium hover:text-sky-400 sm:ml-0"
                       onClick={async () => {
+                        const data = await deleteFromCart(product.id);
+                        if(data?.error) {
+                          toast.error(data.error)
+                          return;
+                        }
                         let item = cart.filter(item => item.id != product.id)
-                        getCart(item)
-                        await removeItem(product.id);
+                        setCart(item)
                       }}
                     >
                       {/* <span>Remove</span> */}
@@ -96,10 +104,7 @@ const CartPage = () => {
                 <div className="flex flex-row w-full gap-4 sm:gap-[65%]">
                   <div className="w-[40%]">Order Total</div>
                   <div className="">
-                    {total.reduce(
-                      (accumulator, currentValue) => accumulator + currentValue,
-                      0
-                    )}
+                    {total}
                   </div>
                 </div>
               </div>
@@ -122,10 +127,9 @@ const CartPage = () => {
         <PaymentForm
           open={visible}
           close={open}
-          amount={total.reduce(
-            (accumulator, currentValue) => accumulator + currentValue,
-            0
-          )}
+          cart={cart}
+          setCart={setCart}
+          amount={total}
          /> 
        </div> 
     </Layout>

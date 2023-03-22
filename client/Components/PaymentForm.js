@@ -4,43 +4,37 @@ import { toast } from "react-toastify";
 import { paymentForm } from "../action/paymentForm";
 import { useRouter } from "next/router";
 import { useCartContext } from "../context/CartContext";
-import { clearEvents } from "../action/cart";
+import { clearCart } from "../action/cart";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 export default function PaymentForm(props) {
-  const [transactionId, setTransactionId] = useState("");
   const router = useRouter();
 
-  const { clearCart } = useCartContext();
-
-  function onchange(e) {
-    console.log("Id", e.target.value);
-    setTransactionId(e.target.value);
-  }
-
-  async function register(e) {
-    e.preventDefault();
+  async function register(values) {
     try {
-      if (transactionId === "") toast.error("Transaction Id can't be empty");
-      else {
-        const data = await paymentForm(transactionId);
-        const res = await clearEvents();
-        console.log("line no.22", data);
-        if (data.status === 200) {
-          toast.success("Successfully Registered");
-          clearCart();
-          router.push("/my_events");
-        } else if (data.status === 201) {
-          toast.error("Transaction ID already exists");
-        } else if (data.status === 202) {
-          toast.error("Add Event To Cart");
-        } else {
-          toast.error("Something went wrong");
-        }
+      const data = await paymentForm(values.transaction_id, props.cart);
+      await clearCart()
+      props.setCart([])
+      if(data?.error) {
+        toast.error(data.error)
+        return
       }
+      toast.success("Transaction has been sent for verification")
     } catch (error) {
       console.log(error);
+      toast.error("Something went wrong");
     }
   }
+
+  const formik = useFormik({
+    initialValues: { email: "", password: "" },
+    validationSchema: Yup.object({
+      transaction_id: Yup.string().required().label("Transaction Id"),
+    }),
+    onSubmit: register
+  });
+
   return (
     <div
       style={{
@@ -112,7 +106,7 @@ export default function PaymentForm(props) {
             </div>
           </div>
           <div className="h-[100%] sm:p-4">
-            <form>
+            <form onSubmit={formik.handleSubmit}>
               <label
                 className="block text-lg font-bold text-primaries-100"
                 htmlFor="transaction_id"
@@ -124,14 +118,15 @@ export default function PaymentForm(props) {
                 id="transaction_id"
                 name="transaction_id"
                 type="text"
-                onChange={onchange}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
                 placeholder="Transcation Id"
-                required={true}
+                value={formik.values.transaction_id}
               />
+              {formik.touched.transaction_id && formik.errors.transaction_id ? (
+                <div className="text-red-500">{formik.errors.transaction_id}</div>
+              ) : null}
               <button
-                onClick={async (e) => {
-                  await register(e);
-                }}
                 className="float-right mt-4 px-4 py-2 mb-2 w-[55%] text-center border-4 border-[#3a5f9d] hover:border-[#172947] text-primaries-100 rounded-xl"
               >
                 Register

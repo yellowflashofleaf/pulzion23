@@ -11,10 +11,13 @@ import { IoGlobeSharp } from "react-icons/io5";
 import EventAccordian from "./EventAccordian";
 import ContentLoader from "./ContentLoader";
 import SlotCard from "./SlotCard";
+import { addItem } from "../action/cart";
+import { toast } from "react-toastify";
 
 const EventModal = forwardRef(
   (
     {
+      id,
       title,
       description,
       rules,
@@ -23,7 +26,6 @@ const EventModal = forwardRef(
       notes,
       isLoggedIn,
       alreadyRegistered,
-      handleAddToCart,
       loading,
       mode,
       play,
@@ -38,6 +40,19 @@ const EventModal = forwardRef(
   ) => {
     const [isVisible, setIsVisible] = useState(false);
     const router = useRouter();
+    const handleAddToCart = async () => {
+      try {
+        const data = await addItem(id)
+        if(data?.error) {
+          toast.error(data.error)
+          return
+        }
+        toast.success("Event added to cart")
+      }catch(e) {
+        console.log(e)
+        toast.error("Something went wrong")
+      }
+    }
     useImperativeHandle(
       ref,
       () => {

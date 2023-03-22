@@ -1,5 +1,5 @@
 const apiConfig = {
-  url: "https://api.pulzion.co.in",
+  url: "http://localhost:9000",
 };
 
 export default apiConfig;

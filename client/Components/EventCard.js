@@ -200,15 +200,7 @@ function EventCard(props) {
         isLoggedIn={isLoggedIn}
         alreadyRegistered={alreadyRegistered}
         mode={props.mode}
-        handleAddToCart={async () =>
-          await addToCart(
-            props.id,
-            props.price,
-            props,
-            props.logo,
-            props.tagline
-          )
-        }
+        id={props.id}
         loading={loading}
         link={props.link}
         fetchSlots={fetchSlots}

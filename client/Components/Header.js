@@ -14,8 +14,6 @@ let links;
 const Header = () => {
   const { user, dispatchUser, dispatchEvents } = useContext(AppContext);
   const router = useRouter();
-  const { cart } = useCartContext();
-  const { clearCart } = useCartContext();
 
   user?.id
     ? (links = [
@@ -89,7 +87,6 @@ const Header = () => {
   const handleLogout = async () => {
     try {
       const data = await logout(dispatchUser, dispatchEvents);
-      clearCart();
       if (data?.error) {
         console.log(data.error);
       }
@@ -158,8 +155,8 @@ const Header = () => {
               <span
                 className={`text-primaries-100 xl:block hidden text-xl cursor-pointer ease-in-out duration-300 px-5 py-1 border-2 rounded-full text-center border-transparent`}
               >
-                <i after={cart.length} className="after:content-[attr(after)] after:-top-7 lg:after:-top-10 lg:after:text-2xl after:bg-black after:text-[#51d8f0] after:italic after:text-center after:rounded-xl after:text-lg after:-right-1 after:w-10 after:relative">
-                  <AiOutlineShoppingCart className="relative text-4xl text-white lg:text-5xl top-4" />
+                <i className="">
+                  <AiOutlineShoppingCart className="relative text-4xl text-white lg:text-5xl" />
                 </i>
               </span>
             </Link>
