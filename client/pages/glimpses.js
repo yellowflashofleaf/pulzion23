@@ -31,7 +31,7 @@ const PreviousGlimpses = () => {
   return (
     <Layout>
       <Head>
-        <title>Pulzion'22 | Glimpses</title>
+        <title>Pulzion'23 | Glimpses</title>
         <meta
           name="description"
           content="Pulzion is the annual flagship event organized by PICT ACM

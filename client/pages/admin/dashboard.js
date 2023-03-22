@@ -62,7 +62,7 @@ const Dashboard = () => {
   return (
     <AdminLayout>
       <Head>
-        <title>Pulzion'22 | Admin</title>
+        <title>Pulzion'23 | Admin</title>
       </Head>
       <div className="py-8">
         <div className="grid grid-cols-3 gap-6 mb-6">

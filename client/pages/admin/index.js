@@ -37,7 +37,7 @@ const Home = () => {
   return (
     <div className="w-full h-screen flex items-center justify-center bg-primaries-700">
       <Head>
-        <title>Pulzion'22 | Admin</title>
+        <title>Pulzion'23 | Admin</title>
       </Head>
       <Formik
         initialValues={{ username: '', password: '', department: undefined }}

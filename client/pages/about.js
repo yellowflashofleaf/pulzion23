@@ -391,7 +391,7 @@ export default function About() {
   return (
     <Layout>
       <Head>
-        <title>Pulzion'22 | About</title>
+        <title>Pulzion'23 | About</title>
         <meta
           name="description"
           content="Pulzion is the annual flagship event organized by PICT ACM

@@ -6,7 +6,7 @@ const PrivacyPolicy = () => {
     return (
         <div className="bg-primaries-700 min-h-screen py-5 md:py-10">
             <Head>
-                <title>Pulzion'22 | Privacy Policy</title>
+                <title>Pulzion'23 | Privacy Policy</title>
                 <meta name='description' content="Pulzion is the annual flagship event organized by PICT ACM
 				Student Chapter (PASC). Pulzion consists of multiple events in
 				technical as well as non-technical domains including coding

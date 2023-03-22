@@ -28,7 +28,7 @@ const StriverModal = ({ isVisible, setIsVisible }) => {
         onClick={() => setIsVisible(false)}
       />
       <div
-        className="text-white fixed rounded-3xl max-w-xl w-11/12 flex flex-col items-center justify-center bg-transparent mb-5"
+        className="fixed flex flex-col items-center justify-center w-11/12 max-w-xl mb-5 text-white bg-transparent rounded-3xl"
         style={{
           top: "50%",
           left: "50%",
@@ -41,10 +41,10 @@ const StriverModal = ({ isVisible, setIsVisible }) => {
         }}
       >
         <img class="object-cover" src={"/images/striver.jpeg"} />
-        <div className="mt-5 rounded-b-3xl flex justify-center items-center flex-col">
+        <div className="flex flex-col items-center justify-center mt-5 rounded-b-3xl">
           <a
             href="https://striver.pulzion.in"
-            className="text-white px-5 py-2 rounded-md uppercase tracking-wider bg-primaries-500 ease-in-out duration-500 mb-3"
+            className="px-5 py-2 mb-3 tracking-wider text-white uppercase duration-500 ease-in-out rounded-md bg-primaries-500"
           >
             Register Now
           </a>

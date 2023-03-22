@@ -87,7 +87,7 @@ export default function PaymentForm(props) {
             <QrCode
               className="p-2 pointer-events-none sm:p-4"
               value={
-                "upi://pay?pa=pratham02more20@okhdfcbank&pn=Pulzion&am=" +
+                "upi://pay?pa=pictscholarship@jsb&pn=PICT ACM Student Chapter&am=" +
                 props.amount +
                 "&tn=Pasc&cu=INR"
               }

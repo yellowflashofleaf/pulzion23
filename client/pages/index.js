@@ -44,7 +44,7 @@ export default function Home() {
   return (
     <Layout>
       <Head>
-        <title>Pulzion'22</title>
+        <title>Pulzion'23</title>
         <meta
           name="description"
           content="Pulzion is the annual flagship event organized by PICT ACM
@@ -72,7 +72,7 @@ export default function Home() {
             src="https://pict.acm.org/static/logo-61e5ab630d7c60480cb27df8e79abd63.png"
             className="w-40"
           /> */}
-          <p className="text-lg font-normal text-center text-primaries-100 md:text-xl">
+          <p className="text-lg italic font-normal text-center text-primaries-100 md:text-xl">
             presents
           </p>
           <img src="logo.png" className="w-full" />
