@@ -76,6 +76,9 @@ const Event = () => {
               <p className='text-primaries-100 text-xl font-normal'>{event.tagline}</p>
             </div>
             <div>
+              <p className='text-primaries-100 text-xl font-bold'>Price: {event.price}</p>
+            </div>
+            <div>
               <button
                 className='border-2 border-primaries-500 text-primaries-100 px-4 py-2 text-center rounded-xl'
                 onClick={() => setEdit(true)}

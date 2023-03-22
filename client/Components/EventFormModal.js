@@ -23,6 +23,7 @@ const validationSchema = Yup.object().shape({
     .trim()
     .required()
     .label("Name"),
+  price: Yup.number().required().label("Price"),
   tagline: Yup.string()
     .trim()
     .required()
@@ -82,6 +83,7 @@ const EventFormModal = ({ setOpen, handleSubmit, event }) => {
         <Formik
           initialValues={{
             name: event?.name ? event.name : '',
+            price: event?.price ? event.price : 0,
             tagline: event?.tagline ? event.tagline : '',
             description: event?.description ? event.description : '',
             type: event?.type ? { label: event.type, value: event.type } : {},
@@ -164,6 +166,15 @@ const EventFormModal = ({ setOpen, handleSubmit, event }) => {
                 />
               </div>
               <div className='flex flex-col gap-5 my-5'>
+                <InputField
+                  type='number'
+                  name='price'
+                  value={values.price}
+                  placeholder='Price'
+                  label='Price'
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
                 <AppText
                   name='description'
                   value={values.description}
