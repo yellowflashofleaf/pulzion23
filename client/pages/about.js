@@ -392,6 +392,7 @@ export default function About() {
     <Layout>
       <Head>
         <title>Pulzion'23 | About</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta>
         <meta
           name="description"
           content="Pulzion is the annual flagship event organized by PICT ACM
