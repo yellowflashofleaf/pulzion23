@@ -52,7 +52,6 @@ export const getRegisteredEvents = async (dispatchEvents) => {
 
 export const registerEvent = async (formId, status) => {
   const pulzion = JSON.parse(localStorage.getItem("pulzion"));
-  console.log("event", formId, status);
   if (pulzion?.type === "admin") {
     const options = {
       method: "POST",
@@ -68,7 +67,6 @@ export const registerEvent = async (formId, status) => {
     };
     try {
       const res = await axios(options);
-      console.log("data", res.data);
       return res.data;
     } catch (e) {
       console.log(e);

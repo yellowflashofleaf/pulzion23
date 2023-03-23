@@ -22,15 +22,13 @@ const Register = () => {
     e.preventDefault();
     try {
       const data = await registerEvent(formId, status);
-      console.log("bhai", data);
-      if (data.length > 0) {
-        toast.success("Registered Successfully");
+      if (data?.error) {
+        toast.error(data.error);
+        return;
       }
-      if (data.status === 202) {
-        toast.error("Event Already Registered");
-      }
+      toast.success(data.msg);
     } catch (e) {
-      toast.error("Event Registered");
+      toast.error("Something went wrong");
     }
   }
 
