@@ -506,33 +506,19 @@ button:disabled {
   background-repeat: no-repeat;
   /* z-index: ; */
 }
-.overlay {
-  /* background-color:; */
-  /* background: url("../public/banner-bg.png") */
-
-  /* linear-gradient(
-    rgba(255, 255, 255, 0.1),
-    rgba(255, 255, 255, 0.1),
-    ); */
-  /* position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%; */
-}
 
 /* This used to work for the parent element of button divs */
 /* But it does not work with newer browsers, the below doesn't hide the play button parent div */
 
-*::-webkit-media-controls-panel {
-  display: none!important;
+video::-webkit-media-controls-panel {
+  display: none !important;
   -webkit-appearance: none;
 }
 
 /* Old shadow dom for play button */
 
-*::-webkit-media-controls-play-button {
-  display: none!important;
+video::-webkit-media-controls-play-button {
+  display: none !important;
   -webkit-appearance: none;
 }
 
@@ -540,7 +526,7 @@ button:disabled {
 
 /* This one works! */
 
-*::-webkit-media-controls-start-playback-button {
-  display: none!important;
+video::-webkit-media-controls-start-playback-button {
+  display: none !important;
   -webkit-appearance: none;
 }
