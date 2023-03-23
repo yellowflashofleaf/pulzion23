@@ -34,6 +34,31 @@ export const paymentForm = async (transaction_id, cart) => {
   }
 };
 
+export const getTransaction = async () => {
+  const pulzion = JSON.parse(localStorage.getItem("pulzion"));
+
+  const options = {
+    method: "GET",
+    url: `${apiConfig.url}/transaction`,
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${pulzion.token}`,
+    },
+  };
+  try {
+    const res = await axios(options);
+    return res.data;
+  } catch (e) {
+    console.log(e);
+    if (e?.response?.data) {
+      return e.response.data;
+    }
+    return {
+      error: "Something Went Wrong",
+    };
+  }
+};
+
 export const getPaymentDetails = async () => {
   const pulzion = JSON.parse(localStorage.getItem("pulzion"));
   if (pulzion?.type === "admin") {

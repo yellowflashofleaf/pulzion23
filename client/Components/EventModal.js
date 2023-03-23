@@ -35,6 +35,7 @@ const EventModal = forwardRef(
       handleBook,
       registeredEvent,
       setSlots,
+      price
     },
     ref
   ) => {
@@ -137,6 +138,7 @@ const EventModal = forwardRef(
                     ? " (Round 1: Online Round 2: Offline)"
                     : ""}
                 </p>
+              <p className="font-bold text-md md:text-xl">₹{price}</p>
               </div>
             </div>
             <div
@@ -219,7 +221,7 @@ const EventModal = forwardRef(
           >
             {!isLoggedIn ? (
               <button
-                className="px-5 py-2 tracking-wider text-white uppercase duration-500 ease-in-out rounded-md bg-primaries-800 hover:bg-primaries-500 font-bold"
+                className="px-5 py-2 font-bold tracking-wider text-white uppercase duration-500 ease-in-out rounded-md bg-primaries-800 hover:bg-primaries-500"
                 onClick={() => {
                   setIsVisible(false);
                   router.push("/register/");
@@ -228,7 +230,7 @@ const EventModal = forwardRef(
                 Login/SignUp to Register
               </button>
             ) : !alreadyRegistered && (
-              <ToolTipButton text="Add to Cart" handleConfirm={handleAddToCart} />
+              <ToolTipButton text={`Add to Cart`} handleConfirm={handleAddToCart} />
             )}
             {/* {!alreadyRegistered && (
               <ToolTipButton

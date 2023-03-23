@@ -203,6 +203,7 @@ function EventCard(props) {
         id={props.id}
         loading={loading}
         link={props.link}
+        price={props.price}
         fetchSlots={fetchSlots}
         slots={slots}
         handleBook={handleBook}
