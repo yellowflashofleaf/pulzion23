@@ -52,6 +52,16 @@ const Header = () => {
         text: "Cart",
         to: "/cart",
       },
+      {
+        id: 8,
+        text: "Orders",
+        to: "/orders",
+      },
+      {
+        id: 9,
+        text: "My Events",
+        to: "/my_events",
+      },
     ])
     : (links = [
       {
@@ -110,7 +120,7 @@ const Header = () => {
             {links.map((link) => (
               <Link href={link.to} key={link.id.toString()}>
                 <span
-                  className={`text-primaries-100 text-xl cursor-pointer ease-in-out duration-300 px-5 py-1 border-2 rounded-full text-center ${link.text === "Cart" ? "hidden" : ""}  ${router.pathname ===  link.to ? 
+                  className={`text-primaries-100 text-xl cursor-pointer ease-in-out duration-300 px-5 py-1 border-2 rounded-full text-center ${link.id > 6 ? "hidden" : ""}  ${router.pathname ===  link.to ? 
                      "border-primaries-100" : "border-transparent"
                     }`}
                 >
@@ -127,7 +137,9 @@ const Header = () => {
             </div>
           ) : (
             <div className={`${styles.shower} relative hidden xl:block`}>
-              <button className="flex items-center justify-between gap-3 px-4 py-2 text-xl border-2 shadow-md bg-primaries-700 text-primaries-100 border-primaries-500 rounded-xl">
+              <button 
+                className="flex items-center justify-between gap-3 px-4 py-2 text-xl border-2 shadow-md bg-primaries-700 text-primaries-100 border-primaries-500 rounded-xl"
+              >
                 <span>{user.first_name}</span>
                 <span>
                   <IoChevronDown />
@@ -136,9 +148,14 @@ const Header = () => {
               <div
                 className={`${styles.drop} hidden absolute bg-primaries-800 text-primaries-100 w-40 flex-col px-4 text-lg rounded-md`}
                 style={{
-                  top: "102%",
+                  top: "100%",
                 }}
               >
+                <Link href="/orders">
+                  <div className="py-2 text-center cursor-pointer">
+                    Orders
+                  </div>
+                </Link>
                 <Link href="/my_events">
                   <div className="py-2 text-center cursor-pointer">
                     My Events
@@ -206,7 +223,7 @@ const Header = () => {
                 </svg>
               </button>
             </div>
-            <div className="flex flex-col items-center gap-8">
+            <div className="flex flex-col items-center gap-5">
               {links.map((link) => (
                 <Link href={link.to} key={link.id.toString()}>
                   <span className="text-xl text-center duration-300 ease-in-out cursor-pointer text-primaries-100 hover:text-primaries-500">

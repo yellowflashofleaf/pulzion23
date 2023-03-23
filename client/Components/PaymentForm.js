@@ -2,7 +2,7 @@ import { useState } from "react";
 import QrCode from "react-qr-code";
 import { toast } from "react-toastify";
 import { paymentForm } from "../action/paymentForm";
-import { useRouter } from "next/router";
+import { Router, useRouter } from "next/router";
 import { useCartContext } from "../context/CartContext";
 import { clearCart } from "../action/cart";
 import { useFormik } from "formik";
@@ -18,9 +18,10 @@ export default function PaymentForm(props) {
         toast.error(data.error);
         return;
       }
-      await clearCart();
-      props.setCart([]);
-      toast.success("Transaction has been sent for verification");
+      await clearCart()
+      props.setCart([])
+      toast.success("Transaction has been sent for verification")
+      router.push("/orders")
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong");
