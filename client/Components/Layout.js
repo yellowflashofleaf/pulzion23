@@ -533,9 +533,9 @@ const Layout = ({ children }) => {
                 autoPlay
                 loop
                 muted
+                controls={true}
                 onLoadStart={()=>setLoader(false)}
                 webkitPlaysinline={true}
-                controls={false}
               >
                 <source src="Cart_bg.mp4" type="video/mp4" />
               </video>
