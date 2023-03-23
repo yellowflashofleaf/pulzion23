@@ -160,6 +160,11 @@ const Header = () => {
                   <div className="py-2 text-center cursor-pointer">
                     My Events
                   </div>
+                </Link>                
+                <Link href="/order">
+                  <div className="py-2 text-center cursor-pointer">
+                    Orders
+                  </div>
                 </Link>
                 <button className="w-full py-2" onClick={handleLogout}>
                   Logout
