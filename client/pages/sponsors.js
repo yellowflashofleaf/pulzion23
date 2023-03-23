@@ -21,7 +21,7 @@ export default function Home() {
           Om Shinde -{" "}
           <a
             className="flex-auto hover:opacity-50"
-            href="tel:9765608601"
+            href="tel: 8668355548"
             target="_blank"
           >
             (+91) 8668355548
@@ -31,7 +31,7 @@ export default function Home() {
           Dheeraj Mhaske  -{" "}
           <a
             className="flex-auto hover:opacity-50"
-            href="tel:9765608601"
+            href="tel:8805073812"
             target="_blank"
           >
             (+91) 8805073812
@@ -40,7 +40,7 @@ export default function Home() {
         <p className="-mt-5 text-lg text-white">
           <a
             className="flex-auto hover:opacity-50"
-            href="mailto: acm.pict@gmail.com"
+            href="mailto: marketing.pasc@gmail.com"
             target="_blank"
           >
             marketing.pasc@gmail.com
