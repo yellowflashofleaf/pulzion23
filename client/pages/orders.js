@@ -3,9 +3,9 @@ import { getTransaction } from "../action/paymentForm";
 import Layout from "../Components/Layout";
 import SectionHeading from "../Components/SectionHeading";
 import moment from 'moment-timezone';
+import privateUserRoute from "../routes/privateUserRoute";
 
-
-export default function order() {
+function order() {
     const [orders,setOrders] = useState([])
 
     useEffect(()=> {
@@ -90,8 +90,10 @@ export default function order() {
             </div>
             <div className="mt-8 text-center text-white">
                 <span>For any queries contact</span><br></br>
-                <a href="mailto: acm.pict@gmail.com">acm.pict@gmail.com</a>
+                <a href="mailto: queries.pulzion@gmail.com">queries.pulzion@gmail.com</a>
             </div>
         </Layout>
     )
 }
+
+export default privateUserRoute(order);

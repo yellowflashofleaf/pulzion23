@@ -43,7 +43,7 @@ export default function Home() {
             href="mailto: acm.pict@gmail.com"
             target="_blank"
           >
-            acm.pict@gmail.com
+            marketing.pasc@gmail.com
           </a>
         </p>
       </div>

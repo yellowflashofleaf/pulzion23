@@ -68,10 +68,6 @@ export default function Home() {
           <p className="text-3xl font-bold tracking-wide text-center text-primaries-100 md:text-5xl">
             PICT ACM Student Chapter
           </p>
-          {/* <img
-            src="https://pict.acm.org/static/logo-61e5ab630d7c60480cb27df8e79abd63.png"
-            className="w-40"
-          /> */}
           <p className="text-lg italic font-normal text-center text-primaries-100 md:text-xl">
             presents
           </p>
@@ -80,7 +76,7 @@ export default function Home() {
             An annual techfest of PICT ACM Student Chapter
           </p>
           <div className="flex flex-row items-center justify-center gap-4 text-2xl font-bold md:gap-6 text-primaries-100 md:text-5xl">
-            <IoCalendarOutline /> <p>12th, 13th &amp; 14th April</p>
+            <IoCalendarOutline /> <p>3rd, 4th &amp; 5th May</p>
           </div>
 
           <div className="flex flex-col gap-6 xl:mt-5 sm:flex sm:flex-row">

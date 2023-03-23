@@ -151,7 +151,7 @@ const Header = () => {
                   top: "100%",
                 }}
               >
-                <Link href="/order">
+                <Link href="/orders">
                   <div className="py-2 text-center cursor-pointer">
                     Orders
                   </div>
