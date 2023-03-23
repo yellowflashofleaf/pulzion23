@@ -6,24 +6,24 @@ import AdminLayout from "../../Components/AdminLayout";
 import { registerEvent } from "../../action/registeration";
 
 const Register = () => {
-  const [transactionId, setTransactionId] = useState("");
-  const [eventId, setEventId] = useState("");
+  const [formId, setFormId] = useState();
+  const [status, setStatus] = useState("");
 
   function onchange(e) {
-    if (e.target.id === "transaction_id") {
-      setTransactionId(e.target.value);
+    if (e.target.id === "form_id") {
+      setFormId(e.target.value);
     }
-    if (e.target.id === "event_id") {
-      setEventId(e.target.value);
+    if (e.target.id === "status") {
+      setStatus(e.target.value);
     }
   }
 
   async function submitEvent(e) {
     e.preventDefault();
     try {
-      const data = await registerEvent(transactionId, eventId);
-      console.log("line no.25", data);
-      if (data.length>0) {
+      const data = await registerEvent(formId, status);
+      console.log("bhai", data);
+      if (data.length > 0) {
         toast.success("Registered Successfully");
       }
       if (data.status === 202) {
@@ -42,29 +42,70 @@ const Register = () => {
       <div>
         <form>
           <div className="flex flex-col gap-4">
-            <label htmlFor="event_id" className="text-white">
-              Transaction Id
+            <label htmlFor="form_id" className="text-white">
+              Form Id
             </label>
             <input
-              id="transaction_id"
-              type={"String"}
-              placeholder={"Transaction Id"}
-              className="w-[150px] sm:w-[55%] border-2 rounded-lg placeholder:px-4 placeholder:py-2"
-              onChange={onchange}
-              required={true}
-            />
-
-            <label htmlFor="event_id" className="text-white">
-              Event Id
-            </label>
-            <input
-              id="event_id"
+              id="form_id"
               type={"number"}
-              placeholder={"Event Id"}
-              className="w-[150px] sm:w-[55%] border-2 rounded-lg placeholder:px-4 placeholder:py-2"
+              placeholder={"Form Id"}
+              className="block
+                    w-full
+                    px-3
+                    py-1.5
+                    text-base
+                    font-normal
+                    bg-primaries-700 
+                    text-primaries-100 
+                    bg-clip-padding bg-no-repeat
+                    border border-solid border-gray-300
+                    rounded
+                    transition
+                    ease-in-out
+                    m-0
+                    focus:text-primaries-100 focus:bg-primaries-700 focus:border-blue-600 focus:outline-none"
               onChange={onchange}
               required={true}
             />
+            {formId === undefined || formId === null ? (
+              <div className="text-red-500">Form Id cannot be empty</div>
+            ) : null}
+
+            <label
+              className="block text-lg font-bold text-primaries-100"
+              htmlFor="status"
+            >
+              status
+            </label>
+            <select
+              id="status"
+              name="status"
+              className="form-select appearance-none
+                    block
+                    w-full
+                    px-3
+                    py-1.5
+                    text-base
+                    font-normal
+                    bg-primaries-700 
+                    text-primaries-100 
+                    bg-clip-padding bg-no-repeat
+                    border border-solid border-gray-300
+                    rounded
+                    transition
+                    ease-in-out
+                    m-0
+                    focus:text-primaries-100 focus:bg-primaries-700 focus:border-blue-600 focus:outline-none"
+              aria-label="Default select example"
+              onChange={onchange}
+            >
+              <option value="">Select Status</option>
+              <option value="accepted">accepted</option>
+              <option value="rejected">rejected</option>
+            </select>
+            {status === "" ? (
+              <div className="text-red-500">Status cannot be empty</div>
+            ) : null}
 
             <br></br>
             <button

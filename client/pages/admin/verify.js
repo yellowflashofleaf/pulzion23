@@ -12,7 +12,7 @@ const VerifyPayments = () => {
 
   const { contEvents } = useContext(AppContext);
   const [filter, setFilter] = useState("");
-  const [selected,setSelected] = useState([{}])
+  const [selected, setSelected] = useState([{}]);
 
   useEffect(() => {
     (async () => {
@@ -70,7 +70,7 @@ const VerifyPayments = () => {
   // }
 
   // function verifyUser() {
-    
+
   // }
 
   return (
@@ -94,8 +94,8 @@ const VerifyPayments = () => {
             </div>
             <table className="min-w-full border-2 border-gray-900">
               <tr>
-                <th>
-                  <input type={"checkbox"}/>
+                <th className="px-2 py-2 text-base text-center border-2 border-gray-900">
+                  Form Id
                 </th>
                 <th className="px-2 py-2 text-base text-center border-2 border-gray-900">
                   User Id
@@ -107,14 +107,17 @@ const VerifyPayments = () => {
                   Transaction ID
                 </th>
                 <th className="px-2 py-2 text-base text-center border-2 border-gray-900">
-                  is_verified
+                  status
+                </th>
+                <th className="px-2 py-2 text-base text-center border-2 border-gray-900">
+                  amount
                 </th>
               </tr>
               {visible &&
                 visible.map((val, idx) => (
                   <tr key={idx}>
                     <td className="px-2 py-2 text-base text-center border-2 border-gray-900">
-                      <input type={"checkbox"} id={val} onChange={onchange}/>
+                      {val.id}
                     </td>
                     <td className="px-2 py-2 text-base text-center border-2 border-gray-900">
                       {val.user_id}
@@ -126,11 +129,13 @@ const VerifyPayments = () => {
                       {val.transaction_id}
                     </td>
                     <td className="px-2 py-2 text-base text-center border-2 border-gray-900">
-                      {val.is_verified}
+                      {val.status}
+                    </td>
+                    <td className="px-2 py-2 text-base text-center border-2 border-gray-900">
+                      {val.amount}
                     </td>
                   </tr>
-                ))
-              }
+                ))}
             </table>
           </div>
         </div>

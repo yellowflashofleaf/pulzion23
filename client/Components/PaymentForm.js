@@ -14,13 +14,13 @@ export default function PaymentForm(props) {
   async function register(values) {
     try {
       const data = await paymentForm(values.transaction_id, props.cart);
-      if(data?.error) {
-        toast.error(data.error)
-        return
+      if (data?.error) {
+        toast.error(data.error);
+        return;
       }
-      await clearCart()
-      props.setCart([])
-      toast.success("Transaction has been sent for verification")
+      await clearCart();
+      props.setCart([]);
+      toast.success("Transaction has been sent for verification");
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong");
@@ -32,7 +32,7 @@ export default function PaymentForm(props) {
     validationSchema: Yup.object({
       transaction_id: Yup.string().trim().required().label("Transaction Id"),
     }),
-    onSubmit: register
+    onSubmit: register,
   });
 
   return (
@@ -124,7 +124,9 @@ export default function PaymentForm(props) {
                 value={formik.values.transaction_id}
               />
               {formik.touched.transaction_id && formik.errors.transaction_id ? (
-                <div className="text-red-500">{formik.errors.transaction_id}</div>
+                <div className="text-red-500">
+                  {formik.errors.transaction_id}
+                </div>
               ) : null}
               <button
                 type="submit"

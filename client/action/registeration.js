@@ -50,10 +50,9 @@ export const getRegisteredEvents = async (dispatchEvents) => {
   }
 };
 
-export const registerEvent = async (transactionId, eventId) => {
+export const registerEvent = async (formId, status) => {
   const pulzion = JSON.parse(localStorage.getItem("pulzion"));
-  console.log("pulzion", eventId, transactionId);
-
+  console.log("event", formId, status);
   if (pulzion?.type === "admin") {
     const options = {
       method: "POST",
@@ -63,8 +62,8 @@ export const registerEvent = async (transactionId, eventId) => {
         Authorization: `Bearer ${pulzion.token}`,
       },
       data: {
-        transaction_id: transactionId,
-        event_id: eventId,
+        payment_form_id: formId,
+        status: status,
       },
     };
     try {
@@ -73,12 +72,12 @@ export const registerEvent = async (transactionId, eventId) => {
       return res.data;
     } catch (e) {
       console.log(e);
-      // if (e?.response?.data) {
-      //   return e.response.data;
-      // }
-      // return {
-      //   error: "Something Went Wrong",
-      // };
+      if (e?.response?.data) {
+        return e.response.data;
+      }
+      return {
+        error: "Something Went Wrong",
+      };
     }
   }
 };
