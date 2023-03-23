@@ -513,6 +513,9 @@ button:disabled {
 video::-webkit-media-controls-panel {
   display: none !important;
   -webkit-appearance: none;
+  opacity: 0;
+  position: absolute;
+  top: -99999px;
 }
 
 /* Old shadow dom for play button */
@@ -520,6 +523,9 @@ video::-webkit-media-controls-panel {
 video::-webkit-media-controls-play-button {
   display: none !important;
   -webkit-appearance: none;
+  opacity: 0;
+  position: absolute;
+  top: -99999px;
 }
 
 /* New shadow dom for play button */
@@ -529,4 +535,7 @@ video::-webkit-media-controls-play-button {
 video::-webkit-media-controls-start-playback-button {
   display: none !important;
   -webkit-appearance: none;
+  opacity: 0;
+  position: absolute;
+  top: -99999px;
 }
