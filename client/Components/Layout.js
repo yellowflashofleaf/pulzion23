@@ -533,7 +533,7 @@ const Layout = ({ children }) => {
                 autoPlay
                 loop
                 muted
-                controls={true}
+                controls={false}
                 onLoadStart={()=>setLoader(false)}
                 webkitPlaysinline={true}
               >
