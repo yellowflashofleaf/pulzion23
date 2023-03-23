@@ -179,7 +179,7 @@ const AboutModal = forwardRef(({ title, description, image }, ref) => {
           onClick={() => {
             setIsVisible(false);
           }}
-        ></button>
+        >Close</button>
       </div>
     </div>
   );
