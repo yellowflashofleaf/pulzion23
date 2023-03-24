@@ -79,3 +79,38 @@ export const registerEvent = async (formId, status) => {
     }
   }
 };
+
+export const userRegisterEvent = async (event_id, dispatchEvents) => {
+  const pulzion = JSON.parse(localStorage.getItem("pulzion"));
+  if (pulzion?.type === "user") {
+    const options = {
+      method: "POST",
+      url: `${apiConfig.url}/user_events`,
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${pulzion.token}`,
+      },
+      data: {
+        event_id
+      },
+    };
+    try {
+      const res = await axios(options);
+      if(!res.data?.error) {
+        dispatchEvents({
+          type: "ADD_EVENT",
+          event: res.data.event
+        })
+      }
+      return res.data;
+    } catch (e) {
+      console.log(e);
+      if (e?.response?.data) {
+        return e.response.data;
+      }
+      return {
+        error: "Something Went Wrong",
+      };
+    }
+  }
+};

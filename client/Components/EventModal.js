@@ -3,6 +3,7 @@ import React, {
   useState,
   useImperativeHandle,
   useRef,
+  useContext,
 } from "react";
 import { event_modal_desc, modal_gradient_class } from "../styles/event_modal.module.css";
 import { useRouter } from "next/router";
@@ -13,6 +14,8 @@ import ContentLoader from "./ContentLoader";
 import SlotCard from "./SlotCard";
 import { addItem } from "../action/cart";
 import { toast } from "react-toastify";
+import { userRegisterEvent } from "../action/registeration";
+import AppContext from "../context/AppContext";
 
 const EventModal = forwardRef(
   (
@@ -41,6 +44,7 @@ const EventModal = forwardRef(
   ) => {
     const [isVisible, setIsVisible] = useState(false);
     const router = useRouter();
+    const { dispatchEvents } = useContext(AppContext)
     const handleAddToCart = async () => {
       try {
         const data = await addItem(id)
@@ -49,6 +53,19 @@ const EventModal = forwardRef(
           return
         }
         toast.success("Event added to cart")
+      }catch(e) {
+        console.log(e)
+        toast.error("Something went wrong")
+      }
+    }
+    const handleRegister = async () => {
+      try {
+        const data = await userRegisterEvent(id, dispatchEvents)
+        if(data?.error) {
+          toast.error(data.error)
+          return
+        }
+        toast.success("Successfully registered!")
       }catch(e) {
         console.log(e)
         toast.error("Something went wrong")
@@ -230,7 +247,15 @@ const EventModal = forwardRef(
                 Login/SignUp to Register
               </button>
             ) : !alreadyRegistered && (
-              <ToolTipButton text={`Add to Cart`} handleConfirm={handleAddToCart} />
+              <span>
+              {
+                price > 0 ? (
+                  <ToolTipButton text={`Add to Cart`} handleConfirm={handleAddToCart} />
+                ) : (
+                  <ToolTipButton text={`Register`} handleConfirm={handleRegister} />
+                )
+              }
+              </span>
             )}
             {/* {!alreadyRegistered && (
               <ToolTipButton
