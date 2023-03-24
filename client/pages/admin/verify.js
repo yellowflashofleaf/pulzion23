@@ -17,7 +17,6 @@ const VerifyPayments = () => {
   useEffect(() => {
     (async () => {
       const res = await getPaymentDetails();
-      console.log("line no. 19", res);
       setData(res);
     })();
   }, []);
