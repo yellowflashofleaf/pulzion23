@@ -49,7 +49,7 @@ const VerifyPayments = () => {
     return combinedData;
   };
   const visible = data.filter((item) =>
-    filter?.value ? filter.value === item.user_id : true
+    filter?.value ? filter.value === item.status : true
   );
   const handleCSVDownload = (e) => {
     var link = document.createElement("a");
