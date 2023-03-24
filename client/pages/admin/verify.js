@@ -21,14 +21,18 @@ const VerifyPayments = () => {
       setData(res);
     })();
   }, []);
-  const newFilters = [];
-  data.forEach((val) => {
-    newFilters.push({
-      value: val.status,
-      label: val.status,
-    });
-  });
-  const options = newFilters;
+  // const newFilters = [];
+  // data.forEach((val) => {
+  //   newFilters.push({
+  //     value: val.status,
+  //     label: val.status,
+  //   });
+  // });
+  const options = [
+    { value: "accepted", label: "accepted" },
+    { value: "pending", label: "pending" },
+    { value: "rejected", label: "rejected" },
+  ];
   const handleSingleChange = (selectedOption) => {
     setFilter(selectedOption);
   };
@@ -85,7 +89,6 @@ const VerifyPayments = () => {
               <Select
                 options={options}
                 className="w-60 text-primaries-700"
-                value={filter}
                 onChange={handleSingleChange}
               />
               <PrimaryButton handleClick={handleCSVDownload}>
