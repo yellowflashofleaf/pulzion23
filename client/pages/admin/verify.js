@@ -24,8 +24,8 @@ const VerifyPayments = () => {
   const newFilters = [];
   data.forEach((val) => {
     newFilters.push({
-      value: val.user_id,
-      label: val.user_id,
+      value: val.status,
+      label: val.status,
     });
   });
   const options = newFilters;
