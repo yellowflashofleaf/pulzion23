@@ -112,6 +112,12 @@ const VerifyPayments = () => {
                 <th className="px-2 py-2 text-base text-center border-2 border-gray-900">
                   amount
                 </th>
+                <th className="px-2 py-2 text-base text-center border-2 border-gray-900">
+                  Name
+                </th>
+                <th className="px-2 py-2 text-base text-center border-2 border-gray-900">
+                  Email
+                </th>
               </tr>
               {visible &&
                 visible.map((val, idx) => (
@@ -123,7 +129,7 @@ const VerifyPayments = () => {
                       {val.user_id}
                     </td>
                     <td className="px-2 py-2 text-base text-center border-2 border-gray-900">
-                      {val.event_id}
+                      {val.event_id?.map((item) => (<span key={item.toString()}>{item}, </span>))}
                     </td>
                     <td className="px-2 py-2 text-base text-center border-2 border-gray-900">
                       {val.transaction_id}
@@ -133,6 +139,12 @@ const VerifyPayments = () => {
                     </td>
                     <td className="px-2 py-2 text-base text-center border-2 border-gray-900">
                       {val.amount}
+                    </td>
+                    <td className="px-2 py-2 text-base text-center border-2 border-gray-900">
+                      {val.first_name + " " + val.last_name}
+                    </td>
+                    <td className="px-2 py-2 text-base text-center border-2 border-gray-900">
+                      {val.email}
                     </td>
                   </tr>
                 ))}
