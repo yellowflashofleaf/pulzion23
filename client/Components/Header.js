@@ -112,7 +112,7 @@ const Header = () => {
         <div className="flex items-center justify-between gap-2">
           <div>
             <Link href="/">
-              <img src="/logo.png" className="cursor-pointer min-h-[25px] lg:max-h-12 max-h-6" />
+              <img src="/logo.png" className="cursor-pointer min-h-[25px] lg:max-h-8 max-h-6" />
             </Link>
           </div>
           <div className="w-8"></div>

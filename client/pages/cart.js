@@ -14,6 +14,10 @@ const CartPage = () => {
   const [cart, setCart] = useState([])
   const [visible,setVisible] = useState(false);
   function open() {
+    if(cart.length===0)  {
+      toast.error("Cart is Empty")
+      return
+    }
     setVisible(!visible);
   }
   
