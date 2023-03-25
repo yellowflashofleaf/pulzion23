@@ -18,10 +18,10 @@ export default function PaymentForm(props) {
         toast.error(data.error);
         return;
       }
-      await clearCart()
-      props.setCart([])
-      toast.success("Transaction has been sent for verification")
-      router.push("/orders")
+      await clearCart();
+      props.setCart([]);
+      toast.success("Transaction has been sent for verification");
+      router.push("/orders");
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong");
@@ -86,7 +86,7 @@ export default function PaymentForm(props) {
               value={
                 "upi://pay?pa=pictscholarship@jsb&pn=PICT ACM Student Chapter&am=" +
                 props.amount +
-                "&tn=Pasc&cu=INR"
+                "&tn=Pulzion&cu=INR"
               }
             />
             <img
