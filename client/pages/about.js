@@ -391,7 +391,7 @@ export default function About() {
   useEffect(() => {
     var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
     if (isIOS) {
-      document.getElementById("canvas-container").style.backgroundColor = "white";
+      document.getElementById("about").style.backgroundColor = "white";
       console.log('This is an iOS device');
     } else {
       console.log('This is Not an iOS device');
