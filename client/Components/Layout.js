@@ -10,6 +10,17 @@ import * as styles from "../styles/layout.module.css";
 import headerImg from "../public/astronaut.svg";
 
 const Layout = ({ children }) => {
+
+  useEffect(()=> {
+    var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    if (isIOS) {
+      document.getElementById("canvas-container").style.backgroundColor = "white";
+      console.log('This is an iOS device');
+    } else {
+      console.log('This is Not an iOS device');
+    }
+  },)
+
   const router = useRouter();
   const bgRef = useRef(null);
   // key features
@@ -17,9 +28,9 @@ const Layout = ({ children }) => {
   //      3d navigation
   useEffect(() => {
     let satellite,
-    satellite2,
-    satellite3,
-    meteor,
+      satellite2,
+      satellite3,
+      meteor,
       meteor2,
       meteor3,
       meteor4,
@@ -195,36 +206,39 @@ const Layout = ({ children }) => {
       meteor9.position.setZ(55);
       scene.add(meteor9);
 
-      var getSatellite = (x,y,z)=>{
+      var getSatellite = (x, y, z) => {
         var satellite = new THREE.Group();
         const satelliteTexture = new THREE.TextureLoader().load('https://thumbs.dreamstime.com/b/metal-plates-rivets-background-texture-patched-steel-steam-punk-85209793.jpg')
-        const rect1 = new THREE.PlaneGeometry( 10, 10, 7, 7 );
-        const PlaneMaterial = new THREE.MeshBasicMaterial( { 
-        side: THREE.DoubleSide,
-        color:'#3f4046'} );
+        const rect1 = new THREE.PlaneGeometry(10, 10, 7, 7);
+        const PlaneMaterial = new THREE.MeshBasicMaterial({
+          side: THREE.DoubleSide,
+          color: '#3f4046'
+        });
         PlaneMaterial.wireframe = true;
-        const rectFirst = new THREE.Mesh( rect1, PlaneMaterial );
+        const rectFirst = new THREE.Mesh(rect1, PlaneMaterial);
         rectFirst.position.x = -10;
         satellite.add(rectFirst);
-        const rect2 = new THREE.PlaneGeometry( 10, 10, 7, 7 );
-        const rectSecond = new THREE.Mesh(rect2,PlaneMaterial);
+        const rect2 = new THREE.PlaneGeometry(10, 10, 7, 7);
+        const rectSecond = new THREE.Mesh(rect2, PlaneMaterial);
         rectSecond.position.x = 10;
         satellite.add(rectSecond);
-        const capsuleGeometry = new THREE.CapsuleGeometry( 5, 10, 32, 32 );
-        const capsuleMaterial = new THREE.MeshBasicMaterial( {color: '#aaaaaa',
-        map:satelliteTexture} );
-        const capsule = new THREE.Mesh( capsuleGeometry, capsuleMaterial );
+        const capsuleGeometry = new THREE.CapsuleGeometry(5, 10, 32, 32);
+        const capsuleMaterial = new THREE.MeshBasicMaterial({
+          color: '#aaaaaa',
+          map: satelliteTexture
+        });
+        const capsule = new THREE.Mesh(capsuleGeometry, capsuleMaterial);
         satellite.add(capsule);
         satellite.position.setX(x);
         satellite.position.setY(y);
         satellite.position.setZ(z);
         return satellite;
       }
-      satellite = getSatellite(30,10,260);
+      satellite = getSatellite(30, 10, 260);
       scene.add(satellite);
-      satellite2 = getSatellite(160,30,-230);
+      satellite2 = getSatellite(160, 30, -230);
       scene.add(satellite2);
-      satellite3 = getSatellite(-220,40,-180);
+      satellite3 = getSatellite(-220, 40, -180);
       scene.add(satellite3)
       //   sun
       {
@@ -271,10 +285,10 @@ const Layout = ({ children }) => {
         };
 
         let material = new THREE.ShaderMaterial({
-            uniforms: uniforms,
-            vertexShader: vertexShader,
-            fragmentShader: fragmentShader,
-          }),
+          uniforms: uniforms,
+          vertexShader: vertexShader,
+          fragmentShader: fragmentShader,
+        }),
           geometry = new THREE.SphereGeometry(25, 64, 64);
         sun = new THREE.Mesh(geometry, material);
         sun.position.setX(100);
@@ -294,10 +308,10 @@ const Layout = ({ children }) => {
         if (name == "saturn") {
           for (let i = 0; i < saturnRings.length; i++) {
             let ringGeometry = new THREE.RingGeometry(
-                i / 4 + 6.5,
-                i / 4 + 6.75,
-                32
-              ),
+              i / 4 + 6.5,
+              i / 4 + 6.75,
+              32
+            ),
               ringMaterial = new THREE.MeshBasicMaterial({
                 color: saturnRings[i],
                 side: THREE.DoubleSide,
@@ -409,17 +423,17 @@ const Layout = ({ children }) => {
         camera.position.z
       );
 
-      satellite.rotation.x =0.005;
-      satellite.rotation.y -=0.008;
-      satellite.rotation.z +=0.007;
-      
-      satellite2.rotation.x -=0.005;
-      satellite2.rotation.y =0.008;
-      satellite2.rotation.z +=0.007;
-      
-      satellite3.rotation.x +=0.005;
-      satellite3.rotation.y -=0.008;
-      satellite3.rotation.z +=0.007;  
+      satellite.rotation.x = 0.005;
+      satellite.rotation.y -= 0.008;
+      satellite.rotation.z += 0.007;
+
+      satellite2.rotation.x -= 0.005;
+      satellite2.rotation.y = 0.008;
+      satellite2.rotation.z += 0.007;
+
+      satellite3.rotation.x += 0.005;
+      satellite3.rotation.y -= 0.008;
+      satellite3.rotation.z += 0.007;
 
       currentNode.camera.position.copy(currentObjectPosition).add(cameraOffset);
       currentNode.controls.update();
@@ -448,7 +462,7 @@ const Layout = ({ children }) => {
       renderer.setSize(container?.clientWidth, container?.clientHeight);
     }
   }, []);
-  const [loader,setLoader] = useState(true)
+  const [loader, setLoader] = useState(true)
   return (
     <>
       {router.pathname === "/" && (
@@ -465,7 +479,7 @@ const Layout = ({ children }) => {
             // zIndex: -1,
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
-          }}  
+          }}
         >
           {/* <div id="canvas-container"></div> */}
           {/* <div class="night">
@@ -482,9 +496,8 @@ const Layout = ({ children }) => {
       )}
 
       <div
-        className={`min-h-screen flex flex-col styles.gradientClass   ${
-          router.pathname === "/" ? "" : ""
-        }`}
+        className={`min-h-screen flex flex-col styles.gradientClass   ${router.pathname === "/" ? "" : ""
+          }`}
       >
         <Header />
         <div
@@ -534,12 +547,12 @@ const Layout = ({ children }) => {
                 loop
                 muted
                 controls={false}
-                onLoadStart={()=>setLoader(false)}
+                onLoadStart={() => setLoader(false)}
                 webkitPlaysinline={true}
               >
                 <source src="Cart_bg.mp4" type="video/mp4" />
               </video>
-               {/* } */}
+              {/* } */}
             </div>
           )}
 
