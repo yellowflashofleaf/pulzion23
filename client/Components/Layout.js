@@ -11,15 +11,15 @@ import headerImg from "../public/astronaut.svg";
 
 const Layout = ({ children }) => {
 
-  useEffect(()=> {
-    var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-    if (isIOS) {
-      document.getElementById("canvas-container").style.backgroundColor = "white";
-      console.log('This is an iOS device');
-    } else {
-      console.log('This is Not an iOS device');
-    }
-  },)
+  // useEffect(()=> {
+  //   var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+  //   if (isIOS) {
+  //     document.getElementById("canvas-container").style.backgroundColor = "white";
+  //     console.log('This is an iOS device');
+  //   } else {
+  //     console.log('This is Not an iOS device');
+  //   }
+  // },)
 
   const router = useRouter();
   const bgRef = useRef(null);
