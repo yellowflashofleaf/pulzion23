@@ -15,6 +15,7 @@ import Zoom from "react-reveal/Zoom";
 import Fade from "react-reveal/Fade";
 import * as React from "react";
 import config from "react-reveal/globals";
+import { useEffect } from "react";
 
 config({ ssrFadeout: true });
 
