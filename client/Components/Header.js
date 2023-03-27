@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useCartContext } from "../context/CartContext";
 import styles from "../styles/header.module.css";
 import PrimaryButton from "./Button/PrimaryButton";
