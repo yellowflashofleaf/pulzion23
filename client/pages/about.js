@@ -388,6 +388,15 @@ const AboutCards = () => {
 };
 
 export default function About() {
+  useEffect(() => {
+    var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    if (isIOS) {
+      document.getElementById("canvas-container").style.backgroundColor = "white";
+      console.log('This is an iOS device');
+    } else {
+      console.log('This is Not an iOS device');
+    }
+  },)
   return (
     <Layout>
       <Head>
@@ -403,7 +412,7 @@ export default function About() {
 				and quizzing events."
         />
       </Head>
-      <div className="flex flex-col px-4 py-5 mx-auto space-y-12 sm:px-8 md:px-12 lg:px-16 md:py-10">
+      <div id="about" className="flex flex-col px-4 py-5 mx-auto space-y-12 sm:px-8 md:px-12 lg:px-16 md:py-10">
         <div className="flex flex-col items-center mb-5 md:mb-10">
           <SectionHeading>About Pulzion</SectionHeading>
         </div>
