@@ -106,16 +106,6 @@ const Header = () => {
   };
   console.log(router.pathname)
 
-  // useEffect(() => {
-  //   var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-  //   if (isIOS) {
-  //     document.getElementById("nav").style.backgroundColor = "white";
-  //     console.log('This is an iOS device');
-  //   } else {
-  //     console.log('This is Not an iOS device');
-  //   }
-  // },)
-
   return (
     <div id="nav">
       <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet"></link>
