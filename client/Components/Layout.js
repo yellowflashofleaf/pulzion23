@@ -454,15 +454,22 @@ const Layout = ({ children }) => {
   }, []);
   const [loader, setLoader] = useState(true)
 
-  // useEffect(() => {
-  //   var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-  //   if (isIOS && router.pathname !== "/") {
-  //     document.getElementById("bg_video").remove();
-  //     console.log('This is an iOS device');
-  //   } else {
-  //     console.log('This is Not an iOS device');
-  //   }
-  // },)
+  useEffect(() => {
+    var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    if (isIOS && router.pathname !== "/") {
+      document.getElementById("bg_video") !== null && document.getElementById("bg_video").remove();
+      document.getElementById("bg") !== null && document.getElementById("bg").appendChild(document.getElementById("bg_image"));
+      setLoader(false)
+    } else {
+      document.getElementById("bg_image") !== null && document.getElementById("bg_image").remove();
+      const video = document.getElementById("bg_video")
+      video?.addEventListener("loadeddata", () => {
+        setLoader(false);
+      });
+    }
+  },)
+
+
 
   return (
     <>
@@ -471,31 +478,17 @@ const Layout = ({ children }) => {
           id="canvas-container"
           ref={bgRef}
           style={{
-            // background:
-            //   "linear-gradient(90deg, rgba(0,1,6,0.3) 0%, rgba(0,1,6,0.8939950980392157) 50%, rgba(0,1,6,0.3) 100%), url('https://user-images.githubusercontent.com/26748614/96337246-f14d4580-1085-11eb-8793-a86d929e034d.jpg')",
             objectFit: "cover",
             height: "100vh",
             width: "100vw",
             position: "fixed",
-            // zIndex: -1,
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
           }}
         >
-          {/* <div id="canvas-container"></div> */}
-          {/* <div class="night">
-            {new Array(20).fill(0).map((val, idx) => (
-              <div class="shooting_star" key={idx}></div>
-            ))}
-          </div>
-          <div class="night" style={{ float: "right" }}>
-            {new Array(20).fill(0).map((val, idx) => (
-              <div class="shooting_star" key={idx}></div>
-            ))}
-          </div> */}
         </div>
       )}
-
+      {loader && <Loader />}
       <div
         className={`min-h-screen flex flex-col styles.gradientClass   ${router.pathname === "/" ? "" : ""
           }`}
@@ -504,57 +497,35 @@ const Layout = ({ children }) => {
         <div
           className={`flex-1  ${router.pathname === "/" ? "" : "background"}`}
         >
-          {/* {router.pathname === "/about" && (
-            <>
-              <video
-                src={"../public/Space - 2381.mp4"}
-                loop
-                muted
-                autoplay
-              ></video>
-              <div class="overlay" />
-            </>
-          )} */}
-
           {router.pathname !== "/" && (
             <div
+              id="bg"
               className="fixed bottom-0 left-0 right-0 min-w-full min-h-full"
               style={{
-                // position: "absolute",
-                // left: 0,
                 zIndex: -1,
                 height: "100vh",
                 width: "100%",
-                // width: "100vw",
-                // height: "100vh",
-                // overflow: "hidden",
               }}
             >
-              {/* {router.pathname !== "/" && ( */}
-              {/* {loader ? <Loader /> :                */}
               <video
                 id="bg_video"
                 style={{
-                  // position: "absolute",
-                  // left: 0,
                   zIndex: -1,
                   height: "100%",
                   width: "100%",
                   objectFit: "cover",
-                  // width: "100vw",
-                  // height: "100vh",
-                  // overflow: "hidden",
                 }}
                 autoPlay
                 loop
                 muted
                 controls={false}
-                onLoadStart={() => setLoader(false)}
                 webkitPlaysinline={true}
+                className={loader ? "hidden" : ""} 
               >
                 <source src="Cart_bg.mp4" type="video/mp4" />
               </video>
-              {/* } */}
+              
+              <img id="bg_image" src="space_bg.jpg" className="h-[100%] w-[100%] -z-1"/>
             </div>
           )}
 
