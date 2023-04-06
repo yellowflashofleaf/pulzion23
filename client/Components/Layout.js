@@ -454,15 +454,15 @@ const Layout = ({ children }) => {
   }, []);
   const [loader, setLoader] = useState(true)
 
-  useEffect(() => {
-    var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-    if (isIOS && router.pathname !== "/") {
-      document.getElementById("bg_video").remove();
-      console.log('This is an iOS device');
-    } else {
-      console.log('This is Not an iOS device');
-    }
-  },)
+  // useEffect(() => {
+  //   var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+  //   if (isIOS && router.pathname !== "/") {
+  //     document.getElementById("bg_video").remove();
+  //     console.log('This is an iOS device');
+  //   } else {
+  //     console.log('This is Not an iOS device');
+  //   }
+  // },)
 
   return (
     <>
