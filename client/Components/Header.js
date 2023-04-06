@@ -160,6 +160,7 @@ const Header = () => {
                 className={`${styles.drop} hidden absolute bg-primaries-800 text-primaries-100 w-40 flex-col px-4 text-lg rounded-md`}
                 style={{
                   top: "100%",
+                  zIndex: 40
                 }}
               >
                 <Link href="/orders">

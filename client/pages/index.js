@@ -60,6 +60,7 @@ export default function Home() {
           }  `}
         style={{
           paddingTop: "10vh",
+          zIndex: 20
         }}
       >
         <div
