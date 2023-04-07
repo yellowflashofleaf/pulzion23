@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "../styles/team.module.css";
+import { AiFillLinkedin } from "react-icons/ai";
+import { IoLogoLinkedin } from "react-icons/io5";
 
 const ProfileCard = ({
   name,
@@ -24,7 +26,13 @@ const ProfileCard = ({
           <ul class={styles.social_icons}>
             <li>
               <a href={linkedin} target="_blank">
-                <i class="fa fa-linkedin"></i>
+                <IoLogoLinkedin
+                  className="absolute inset-0 m-auto text-white"
+                  style={{
+                    color: "white",
+                    fontSize: "1.5rem",
+                  }}
+                />
               </a>
             </li>
           </ul>

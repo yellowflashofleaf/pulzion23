@@ -1,5 +1,5 @@
 import React from "react";
-import Head from 'next/head';
+import Head from "next/head";
 import styles from "../styles/team.module.css";
 import Layout from "../Components/Layout";
 import Image from "next/image";
@@ -8,102 +8,117 @@ import SectionHeading from "../Components/SectionHeading";
 
 const TeamPage = () => {
   const profiles = [
-    // {
-    //   name: "Ashutosh",
-    //   surname: "Shaha",
-    //   imageUrl: "https://pulzion22.s3.ap-south-1.amazonaws.com/team/6Zr4VTa.jpg",
-    //   designation: "Chairperson",
-    //   socials: {
-    //     linkedin: "https://www.linkedin.com/in/ashutosh-shaha/",
-    //   },
-    // },
-    // {
-    //   name: "Siddhi",
-    //   surname: "Wakchaure",
-
-    //   imageUrl: "https://pulzion22.s3.ap-south-1.amazonaws.com/team/wgo56lh.jpg",
-    //   designation: "Vice Chairperson",
-    //   socials: {
-    //     linkedin: "https://www.linkedin.com/in/siddhi-wakchaure-98b147198/",
-    //   },
-    // },
     {
-      name: "Rohin Bhat",
-      avatar: "https://pulzion22.s3.ap-south-1.amazonaws.com/team/DrQKBgx.jpg",
+      name: "Aditi Chavan",
+      avatar:
+        "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/chair.JPG",
+      designation: "Chairperson",
+      linkedin: "https://www.linkedin.com/in/aditi-chavan-439b44206",
+    },
+    {
+      name: "Om Shinde",
+      avatar:
+        "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/ViceChair.png",
+      designation: "Vice Chairperson",
+
+      linkedin: "https://www.linkedin.com/in/om-shinde-0aabb1207",
+    },
+    {
+      name: "Tejas Padhiyar",
+      avatar:
+        "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/secretary.jpg",
       designation: "Secretary",
 
-      linkedin: "https://www.linkedin.com/in/rohinbhat",
+      linkedin: "https://www.linkedin.com/in/tejas-padhiyar",
     },
     {
-      name: "Bhavana Bafna",
-      avatar: "https://pulzion22.s3.ap-south-1.amazonaws.com/team/qMVRJNd.jpg",
+      name: "Shivani Makde",
+      avatar:
+        "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/Treasurer.jpeg",
       designation: "Treasurer",
 
-      linkedin: "https://www.linkedin.com/in/bhavana-bafna-2b80991a6",
+      linkedin: "https://www.linkedin.com/in/shivani-makde",
     },
     {
-      name: "Sharayu Hiwarkhedkar",
-      avatar: "https://pulzion22.s3.ap-south-1.amazonaws.com/team/XtF0mWQ.jpg",
+      name: "Amar Dalvi",
+      avatar:
+        "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/PRO.jpg",
       designation: "Public Relations Officer",
 
-      linkedin: "https://www.linkedin.com/in/sharayu-hiwarkhedkar-996a8b1b0",
+      linkedin: "https://www.linkedin.com/in/amar-dalvi-ba5b36208",
     },
     {
-      name: "Vimal Galani",
+      name: "Pratham More",
 
-      avatar: "https://pulzion22.s3.ap-south-1.amazonaws.com/team/gctrKTy.jpg",
+      avatar:
+        "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/TechHead1.jpg",
       designation: "Technical Head",
 
-      linkedin: "https://www.linkedin.com/in/vimal-galani-a7b977199/",
+      linkedin: "https://www.linkedin.com/in/pratham-more-7688571b5/",
     },
     {
-      name: "Rugved Somwanshi",
-      avatar: "https://pulzion22.s3.ap-south-1.amazonaws.com/team/MYeC06A.jpg",
+      name: "Suyog Kokaje",
+      avatar:
+        "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/TechHead2.jpg",
       designation: "Technical Head",
 
-      linkedin: "https://www.linkedin.com/in/rugved-somwanshi-29078417b/",
+      linkedin: "https://www.linkedin.com/in/suyog-kokaje-bb54aa212/",
     },
     {
-      name: "Akshat Sharma",
-      avatar: "https://pulzion22.s3.ap-south-1.amazonaws.com/team/KY2e5gD.jpg",
+      name: "Yash Kalavadiya",
+      avatar:
+        "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/web.png",
       designation: "Domain Director (Web & DevOps)",
 
-      linkedin: "https://www.linkedin.com/in/akshat-sharma-2602/",
+      linkedin: "https://www.linkedin.com/in/yash-kalavadiya-789141170/",
     },
     {
-      name: "Aditya Kangune",
-
-      avatar: "https://pulzion22.s3.ap-south-1.amazonaws.com/team/zKht3vZ.jpg",
-      designation: "Domain Director (ML & AI)",
-
-      linkedin: "https://www.linkedin.com/in/aditya-kangune-0376671aa/",
-    },
-    {
-      name: "Ojas Kund",
-      avatar: "https://pulzion22.s3.ap-south-1.amazonaws.com/team/ueWUJFE.jpg",
+      name: "Yash Sonawane",
+      avatar:
+        "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/CP.JPG",
       designation: "Domain Director (Competitive Programming)",
 
-      linkedin: "https://www.linkedin.com/in/ojas-kund/",
+      linkedin: "https://www.linkedin.com/in/yash-sonawane-a49870202",
     },
     {
-      name: "Aagaaz Ali Sayed",
+      name: "Mokshad Vaidya",
 
-      avatar: "https://pulzion22.s3.ap-south-1.amazonaws.com/team/YVvRzwF.jpg",
+      avatar:
+        "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/App.jpeg",
+      designation: "Domain Director (App)",
+
+      linkedin: "https://www.linkedin.com/in/mokshadvaidya",
+    },
+    {
+      name: "Aishwarya Mirashi",
+
+      avatar:
+        "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/Ml.jpg",
+      designation: "Domain Director (ML & AI)",
+
+      linkedin: "https://www.linkedin.com/in/aishwarya-mirashi-620534215",
+    },
+    
+    {
+      name: "Dheeraj Maske",
+
+      avatar:
+        "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/marketing.jpeg",
       designation: "Marketing Head",
 
-      linkedin: "https://www.linkedin.com/in/aagaaz-ali-sayed-1063851ba/",
+      linkedin: "https://www.linkedin.com/in/dheeraj-maske-b47343200",
     },
     {
-      name: "Sakshi Harode",
-      avatar: "https://pulzion22.s3.ap-south-1.amazonaws.com/team/Sczmb38.jpg",
-      designation: "Design Head",
-      linkedin: "https://www.linkedin.com/in/sakshi-harode/",
+      name: "Akanksha Waghmare",
+      avatar: "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/creative2.jpg",
+      designation: "Creative Head",
+      linkedin: "https://www.linkedin.com/in/akanksha-waghmare-b53394224",
     },
     {
-      name: "Pranjali Desai",
-      avatar: "https://pulzion22.s3.ap-south-1.amazonaws.com/team/JawtfQc.jpg",
-      designation: "Content Head",
-      linkedin: "https://www.linkedin.com/in/pranjali-desai-0090a2218/",
+      name: "Prasenjeet Sonawane",
+      avatar: "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/creative1.png",
+      designation: "Creative Head",
+      linkedin: "https://www.linkedin.com/in/prasenjeet-sonawane-856b23205/",
     },
   ];
 
@@ -111,12 +126,15 @@ const TeamPage = () => {
     <Layout>
       <Head>
         <title>Pulzion'23 | Team</title>
-        <meta name='description' content="Pulzion is the annual flagship event organized by PICT ACM
+        <meta
+          name="description"
+          content="Pulzion is the annual flagship event organized by PICT ACM
 				Student Chapter (PASC). Pulzion consists of multiple events in
 				technical as well as non-technical domains including coding
 				competitions, mock placement interviews, business
 				management-based events, design and development based contests
-				and quizzing events."/>
+				and quizzing events."
+        />
       </Head>
       <div className="py-5 md:py-10">
         <SectionHeading>Meet Our Team</SectionHeading>
@@ -129,7 +147,7 @@ const TeamPage = () => {
             linkedin="https://www.linkedin.com/in/dr-geetanjali-kale-17148922/"
           />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-y-20 justify-center items-center mt-20">
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-y-20 justify-center items-center mt-20">
           <ProfileCard
             name="Ashutosh Shaha"
             avatar="https://pulzion22.s3.ap-south-1.amazonaws.com/team/6Zr4VTa.jpg"
@@ -142,10 +160,16 @@ const TeamPage = () => {
             designation="Vice Chairperson"
             linkedin="https://www.linkedin.com/in/siddhi-wakchaure-98b147198/"
           />
-        </div>
+        </div> */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-20 justify-center items-center mt-20">
           {profiles.map((profile, index) => (
-            <ProfileCard key={index} {...profile} />
+            <ProfileCard
+              key={index}
+              name={profile.name}
+              avatar={profile.avatar}
+              designation={profile.designation}
+              linkedin={profile.linkedin}
+            />
           ))}
         </div>
       </div>

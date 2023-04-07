@@ -7,7 +7,7 @@ import AppContext from "../context/AppContext";
 import { IoChevronDown } from "react-icons/io5";
 import { useRouter } from "next/router";
 import { logout } from "../action/user";
-import { AiOutlineShoppingCart } from 'react-icons/ai'
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 let links;
 
@@ -17,82 +17,86 @@ const Header = () => {
 
   user?.id
     ? (links = [
-      {
-        id: 1,
-        text: "Home",
-        to: "/",
-      },
-      {
-        id: 2,
-        text: "Events",
-        to: "/events",
-      },
-      {
-        id: 3,
-        text: "About",
-        to: "/about",
-      },
-      {
-        id: 4,
-        text: "Sponsors",
-        to: "/sponsors",
-      },
-      // {
-      //   id: 5,
-      //   text: "Meet Our Team",
-      //   to: "/team",
-      // },
-      {
-        id: 6,
-        text: "Glimpses",
-        to: "/glimpses",
-      },
-      {
-        id: 7,
-        text: "Cart",
-        to: "/cart",
-      },
-      {
-        id: 8,
-        text: "Orders",
-        to: "/orders",
-      },
-      {
-        id: 9,
-        text: "My Events",
-        to: "/my_events",
-      },
-    ])
+        {
+          id: 1,
+          text: "Home",
+          to: "/",
+        },
+        {
+          id: 2,
+          text: "Events",
+          to: "/events",
+        },
+        {
+          id: 3,
+          text: "About",
+          to: "/about",
+        },
+        {
+          id: 4,
+          text: "Sponsors",
+          to: "/sponsors",
+        },
+        {
+          id: 5,
+          text: "Team",
+          to: "/team",
+        },
+        {
+          id: 6,
+          text: "Glimpses",
+          to: "/glimpses",
+        },
+        {
+          id: 7,
+          text: "Cart",
+          to: "/cart",
+        },
+        {
+          id: 8,
+          text: "Orders",
+          to: "/orders",
+        },
+        {
+          id: 9,
+          text: "My Events",
+          to: "/my_events",
+        },
+      ])
     : (links = [
-      {
-        id: 1,
-        text: "Home",
-        to: "/",
-      },
-      {
-        id: 2,
-        text: "Events",
-        to: "/events",
-      },
-      {
-        id: 3,
-        text: "About",
-        to: "/about",
-      },
-      {
-        id: 4,
-        text: "Sponsors",
-        to: "/sponsors",
-      },
-      {
-        id: 6,
-        text: "Glimpses",
-        to: "/glimpses",
-      },
-    ]);
+        {
+          id: 1,
+          text: "Home",
+          to: "/",
+        },
+        {
+          id: 2,
+          text: "Events",
+          to: "/events",
+        },
+        {
+          id: 3,
+          text: "About",
+          to: "/about",
+        },
+        {
+          id: 4,
+          text: "Sponsors",
+          to: "/sponsors",
+        },
+        {
+          id: 5,
+          text: "Team",
+          to: "/team",
+        },
+        {
+          id: 6,
+          text: "Glimpses",
+          to: "/glimpses",
+        },
+      ]);
 
   const [open, setOpen] = useState(false);
-
 
   const handleLogout = async () => {
     try {
@@ -104,16 +108,22 @@ const Header = () => {
       console.log(e);
     }
   };
-  console.log(router.pathname)
+  console.log(router.pathname);
 
   return (
     <div id="nav">
-      <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet"></link>
+      <link
+        href="https://use.fontawesome.com/releases/v5.0.1/css/all.css"
+        rel="stylesheet"
+      ></link>
       <div className="relative h-full px-4 py-5 sm:px-8 md:px-12 lg:px-16 praet">
         <div className="flex items-center justify-between gap-2">
           <div>
             <Link href="/">
-              <img src="/logo.png" className="cursor-pointer min-h-[25px] lg:max-h-8 max-h-6" />
+              <img
+                src="/logo.png"
+                className="cursor-pointer min-h-[25px] lg:max-h-8 max-h-6"
+              />
             </Link>
           </div>
           <div className="w-8"></div>
@@ -121,9 +131,13 @@ const Header = () => {
             {links.map((link) => (
               <Link href={link.to} key={link.id.toString()}>
                 <span
-                  className={`text-primaries-100 text-xl cursor-pointer ease-in-out duration-300 px-5 py-1 border-2 rounded-full text-center ${link.id > 6 ? "hidden" : ""}  ${router.pathname ===  link.to ? 
-                     "border-primaries-100" : "border-transparent"
-                    }`}
+                  className={`text-primaries-100 text-xl cursor-pointer ease-in-out duration-300 px-5 py-1 border-2 rounded-full text-center ${
+                    link.id > 6 ? "hidden" : ""
+                  }  ${
+                    router.pathname === link.to
+                      ? "border-primaries-100"
+                      : "border-transparent"
+                  }`}
                 >
                   {link.text}
                 </span>
@@ -138,9 +152,7 @@ const Header = () => {
             </div>
           ) : (
             <div className={`${styles.shower} relative hidden xl:block`}>
-              <button 
-                className="flex items-center justify-between gap-3 px-4 py-2 text-xl border-2 shadow-md bg-primaries-700 text-primaries-100 border-primaries-500 rounded-xl"
-              >
+              <button className="flex items-center justify-between gap-3 px-4 py-2 text-xl border-2 shadow-md bg-primaries-700 text-primaries-100 border-primaries-500 rounded-xl">
                 <span>{user.first_name}</span>
                 <span>
                   <IoChevronDown />
@@ -154,9 +166,7 @@ const Header = () => {
                 }}
               >
                 <Link href="/orders">
-                  <div className="py-2 text-center cursor-pointer">
-                    Orders
-                  </div>
+                  <div className="py-2 text-center cursor-pointer">Orders</div>
                 </Link>
                 <Link href="/my_events">
                   <div className="py-2 text-center cursor-pointer">
@@ -169,7 +179,7 @@ const Header = () => {
               </div>
             </div>
           )}
-          {user?.id ?
+          {user?.id ? (
             <Link href={"/cart"} key={"7"}>
               <span
                 className={`text-primaries-100 xl:block hidden text-xl cursor-pointer ease-in-out duration-300 px-5 py-1 border-2 rounded-full text-center border-transparent`}
@@ -179,8 +189,9 @@ const Header = () => {
                 </i>
               </span>
             </Link>
-            : <></>
-          }
+          ) : (
+            <></>
+          )}
           <button
             className="block xl:hidden text-primaries-100"
             onClick={() => setOpen(true)}

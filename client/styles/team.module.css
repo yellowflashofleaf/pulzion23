@@ -74,6 +74,7 @@
 }
 .social_icons {
   padding: 0;
+  position: relative;
   list-style: none;
 }
 .social_icons li {
