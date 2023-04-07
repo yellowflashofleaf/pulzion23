@@ -87,7 +87,7 @@ const EventNumber = ({ name, count }) => {
 const EventNumbers = () => {
   return (
     <Fade left cascade delay={600}>
-      <div className="flex flex-col mb-10 space-y-5 md:mb-0 quantico_font">
+      <div className="flex flex-col mb-10 space-y-5 md:mb-0 ">
         <div className="flex flex-row items-center justify-center">
           <EventNumber name={"Events"} count={16} />
         </div>
@@ -103,9 +103,9 @@ const EventNumbers = () => {
 const PulzionInfo = () => {
   return (
     <Fade right cascade>
-      <div className="flex flex-col quantico_font">
+      <div className="flex flex-col">
         <p
-          className="mt-5 text-lg font-light text-center text-white md:text-left md:mt-0 md:text-2xl"
+          className="mt-5 text-lg text-center text-white md:text-left md:mt-0 md:text-2xl"
           style={{
             wordSpacing: "0.15em",
           }}
@@ -190,7 +190,7 @@ const AboutCard = ({ title, description, image }) => {
   const modalRef = useRef();
 
   return (
-    <div className="flex flex-col items-center justify-center max-w-lg quantico_font">
+    <div className="flex flex-col items-center justify-center max-w-lg">
       <div className="w-full p-6 rounded-md shadow-2xl bg-primaries-800">
         <Zoom>
           <div>
@@ -298,7 +298,7 @@ const ContactUs = () => {
       <div className="mb-5 md:mb-10">
         <SectionHeading>Contact us</SectionHeading>
       </div>
-      <div className="grid gap-2 md:grid-cols-3 quantico_font">
+      <div className="grid gap-2 md:grid-cols-3 ">
         <div className="flex flex-col text-center">
           <p className="flex flex-row items-center justify-center text-3xl text-white">
             <p>
@@ -377,7 +377,7 @@ const ContactUs = () => {
 const AboutCards = () => {
   return (
     <>
-      <div className="flex flex-col justify-center space-y-10 lg:flex-row lg:space-y-0 lg:space-x-10 quantico_font">
+      <div className="flex flex-col justify-center space-y-10 lg:flex-row lg:space-y-0 lg:space-x-10 ">
         <AboutCard {...{ ...ABOUT_US_CARDS[0] }} />
         <AboutCard {...{ ...ABOUT_US_CARDS[1] }} />
       </div>
@@ -389,15 +389,6 @@ const AboutCards = () => {
 };
 
 export default function About() {
-  // useEffect(() => {
-  //   var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-  //   if (isIOS) {
-  //     document.getElementById("about").style.backgroundColor = "white";
-  //     console.log('This is an iOS device');
-  //   } else {
-  //     console.log('This is Not an iOS device');
-  //   }
-  // },)
   return (
     <Layout>
       <Head>
