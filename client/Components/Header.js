@@ -37,11 +37,11 @@ const Header = () => {
           text: "Sponsors",
           to: "/sponsors",
         },
-        // {
-        //   id: 5,
-        //   text: "Team",
-        //   to: "/team",
-        // },
+        {
+          id: 5,
+          text: "Team",
+          to: "/team",
+        },
         {
           id: 6,
           text: "Glimpses",
@@ -84,11 +84,11 @@ const Header = () => {
           text: "Sponsors",
           to: "/sponsors",
         },
-        // {
-        //   id: 5,
-        //   text: "Team",
-        //   to: "/team",
-        // },
+        {
+          id: 5,
+          text: "Team",
+          to: "/team",
+        },
         {
           id: 6,
           text: "Glimpses",
@@ -116,7 +116,7 @@ const Header = () => {
         href="https://use.fontawesome.com/releases/v5.0.1/css/all.css"
         rel="stylesheet"
       ></link>
-      <div className="relative h-full px-4 py-5 sm:px-8 md:px-12 lg:px-16 praet">
+      <div className="relative h-full px-4 py-5 sm:px-8 praet">
         <div className="flex items-center justify-between gap-2">
           <div>
             <Link href="/">
@@ -126,7 +126,7 @@ const Header = () => {
               />
             </Link>
           </div>
-          <div className="w-8"></div>
+          {/* <div className="w-8"></div> */}
           <div className="items-center hidden xl:ml-auto xl:flex lg-gap-1 nav-font">
             {links.map((link) => (
               <Link href={link.to} key={link.id.toString()}>
