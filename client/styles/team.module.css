@@ -57,6 +57,7 @@
     #c850c0 46%,
     #ffcc70 100%
   ); */
+  box-shadow: 0px 0px 6px 2px #2c7aaf;
   background-position: "center";
   background-size: cover;
   border-radius: 50%;
