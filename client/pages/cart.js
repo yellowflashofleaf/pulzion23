@@ -48,8 +48,8 @@ const CartPage = () => {
         <h1 className="mt-[50px] text-3xl font-black text-center uppercase sm:text-4xl md:text-5xl text-sky-400 list-none">
           <SectionHeading>Events Cart</SectionHeading>
         </h1>
-        <div className="flex flex-col h-full mt-4 list-none sm:flex sm:flex-row sm:gap-2">
-          <ul className="m-5 p-4 sm:w-[70%] divide-y"
+        <div className="flex flex-col h-full mt-4 list-none lg:flex lg:flex-row lg:gap-2">
+          <ul className="m-5 p-4 lg:w-[70%] divide-y"
             style={{
               backgroundColor: "rgba(23, 41, 71, 0.73)",
               borderRadius: "12px",
@@ -58,23 +58,21 @@ const CartPage = () => {
           >
             {cart.length != 0 ?
             cart.map((product) => ( 
-              <li>
-                {/* {total.push(product.price)} */}
-                {console.log("Id ",product.id)}
-                <div className="grid grid-cols-4 gap-8 sm:p-10">
+              <li className="px-4 py-4">
+                <div className="grid items-center grid-cols-4 gap-6 lg:p-10">
                   <div>
                     <img
                       src={product.logo}
                       alt="{product.imageAlt}"
-                      className="w-24 h-12 rounded-lg sm:w-40 sm:h-32"
+                      className="rounded-lg sm:w-40 sm:h-32"
                     />
                   </div>
-                  <div className="text-white">{product.name}</div>
-                  <div className="text-white sm:float-right">₹ {product.price}</div>
+                  <div className="text-[10px] text-white font-medium sm:text-lg">{product.name}</div>
+                  <div className="text-white font-medium sm:float-right sm:text-lg text-[10px]">₹ {product.price}</div>
                   <div className="text-white">
                     <button
                       type="button"
-                      className="ml-0 text-xs text-white sm:text-sm sm:font-medium hover:text-sky-400 sm:ml-0"
+                      className="ml-0 text-[10] text-white sm:text-lg font-medium hover:text-sky-400 sm:ml-0"
                       onClick={async () => {
                         const data = await deleteFromCart(product.id);
                         if(data?.error) {
@@ -95,7 +93,7 @@ const CartPage = () => {
           </ul>
 
           <div
-            className="sm:w-[50%] sm:h-[30%] sm:p-4 sm:m-5 text-white mr-5 ml-[40%]"
+            className="sm:w-[50%] w-[50%] self-end lg:self-auto sm:h-[30%] sm:p-5 sm:m-5 text-white mr-5 ml-[40%]"
             style={{
               backgroundColor: "rgba(23, 41, 71, 0.73)",
               borderRadius: "12px",
@@ -105,9 +103,9 @@ const CartPage = () => {
             <div className="flex flex-col text-sm divide-y divide-gray-200">
               <h2 className="p-4 text-center"> Order Summary</h2>
               <div className="p-4">
-                <div className="flex flex-row w-full gap-4 sm:gap-[65%]">
-                  <div className="w-[40%]">Order Total</div>
-                  <div className="">
+                <div className="flex flex-row w-full sm:gap-[65%]">
+                  <div className="w-[40%] whitespace-pre">Order Total</div>
+                  <div className="ml-auto">
                     {total}
                   </div>
                 </div>
