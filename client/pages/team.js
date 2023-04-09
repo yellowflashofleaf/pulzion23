@@ -11,14 +11,14 @@ const TeamPage = () => {
     {
       name: "Aditi Chavan",
       avatar:
-        "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/chair.JPG",
+        "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/chair.jpg",
       designation: "Chairperson",
       linkedin: "https://www.linkedin.com/in/aditi-chavan-439b44206",
     },
     {
       name: "Om Shinde",
       avatar:
-        "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/ViceChair.png",
+        "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/Vice+chair.png",
       designation: "Vice Chairperson",
 
       linkedin: "https://www.linkedin.com/in/om-shinde-0aabb1207",
@@ -34,7 +34,7 @@ const TeamPage = () => {
     {
       name: "Shivani Makde",
       avatar:
-        "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/Treasurer.jpeg",
+        "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/treasurer.jpeg",
       designation: "Treasurer",
 
       linkedin: "https://www.linkedin.com/in/shivani-makde",
@@ -98,7 +98,7 @@ const TeamPage = () => {
 
       linkedin: "https://www.linkedin.com/in/aishwarya-mirashi-620534215",
     },
-    
+
     {
       name: "Dheeraj Maske",
 
@@ -110,13 +110,15 @@ const TeamPage = () => {
     },
     {
       name: "Akanksha Waghmare",
-      avatar: "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/creative2.jpg",
+      avatar:
+        "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/creative2.jpg",
       designation: "Creative Head",
       linkedin: "https://www.linkedin.com/in/akanksha-waghmare-b53394224",
     },
     {
       name: "Prasenjeet Sonawane",
-      avatar: "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/creative1.png",
+      avatar:
+        "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/creative1.png",
       designation: "Creative Head",
       linkedin: "https://www.linkedin.com/in/prasenjeet-sonawane-856b23205/",
     },
