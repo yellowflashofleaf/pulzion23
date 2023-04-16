@@ -14,9 +14,9 @@ import { CountryDropdown } from "react-country-region-selector";
 const years = ["FE", "SE", "TE", "BE"];
 
 const RegisterForm = (props) => {
-
   const { dispatchUser } = useContext(AppContext);
   const [loading, setLoading] = useState(false);
+  const [others, setOthers] = useState(true);
 
   const handleRegister = async (values) => {
     try {
@@ -30,6 +30,12 @@ const RegisterForm = (props) => {
       toast.error("Something Went Wrong");
     }
     setLoading(false);
+  };
+
+  const handleInputChange = (event) => {
+    setOthers(false);
+    const { name, value } = event.target;
+    formik.setFieldValue(name, value);
   };
 
   const formik = useFormik({
@@ -190,7 +196,7 @@ const RegisterForm = (props) => {
             className="block text-lg font-bold text-primaries-100"
             htmlFor="college"
           >
-            College
+            College (If you are a PICT student)
           </label>
           <select
             name="college"
@@ -219,33 +225,38 @@ const RegisterForm = (props) => {
             <option value="PICT">PICT</option>
             <option value="Others">Others</option>
           </select>
-          {formik.touched.college && formik.errors.college ? (
+          {formik.touched.college && formik.errors.college && others ? (
             <div className="text-red-500">{formik.errors.college}</div>
           ) : null}
         </div>
         {console.log("inputField", formik.values.college)}
-        {
-          formik.values.college === "Others" ?
-            <div className="flex flex-col gap-2 mb-4">
-              <label
-                className="block text-lg font-bold text-primaries-100"
-                htmlFor="college_name"
-              >
-                College Name
-              </label>
-              <input
-                className="w-full px-3 py-2 leading-tight border rounded shadow appearance-none bg-primaries-700 text-primaries-100 focus:outline-none focus:shadow-outline"
-                id="college_name"
-                name="college_name"
-                type="text"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                placeholder="College Name"
-              />
-              {formik.touched.college && formik.errors.college ? (
-                <div className="text-red-500">{formik.errors.college}</div>
-              ) : null}
-            </div> : <></>}
+        {formik.values.college !== "PICT" ? (
+          <div className="flex flex-col gap-2 mb-4">
+            <label
+              className="block text-lg font-bold text-primaries-100"
+              htmlFor="college_name"
+            >
+              College Name (If you are not a PICT student enter college name)
+            </label>
+            <input
+              className="w-full px-3 py-2 leading-tight border rounded shadow appearance-none bg-primaries-700 text-primaries-100 focus:outline-none focus:shadow-outline"
+              id="college"
+              name="college"
+              type="text"
+              //value={formik.values.college_name}
+              onClick={handleInputChange}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              placeholder="College Name"
+            />
+            {console.log("college_name", formik.values.college)}
+            {formik.touched.college && formik.errors.college ? (
+              <div className="text-red-500">{formik.errors.college}</div>
+            ) : null}
+          </div>
+        ) : (
+          <></>
+        )}
 
         <div className="flex flex-col gap-2 mb-4">
           <label
