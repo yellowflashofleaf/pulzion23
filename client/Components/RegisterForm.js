@@ -196,7 +196,7 @@ const RegisterForm = (props) => {
             className="block text-lg font-bold text-primaries-100"
             htmlFor="college"
           >
-            College (If you are a PICT student)
+            College
           </label>
           <select
             name="college"
@@ -218,10 +218,11 @@ const RegisterForm = (props) => {
                     focus:text-primaries-100 focus:bg-primaries-700 focus:border-blue-600 focus:outline-none"
             aria-label="Default select example"
             value={formik.values.college}
+            onClick={()=>{setOthers(true)}}
             onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
+            onBlur={formik.handleBlur}            
           >
-            <option value="">Select College</option>
+            <option value="">{others? "Select College" : "Others"}</option>
             <option value="PICT">PICT</option>
             <option value="Others">Others</option>
           </select>
@@ -230,13 +231,13 @@ const RegisterForm = (props) => {
           ) : null}
         </div>
         {console.log("inputField", formik.values.college)}
-        {formik.values.college !== "PICT" ? (
+        {formik.values.college === "Others" || !others ? (
           <div className="flex flex-col gap-2 mb-4">
             <label
               className="block text-lg font-bold text-primaries-100"
               htmlFor="college_name"
             >
-              College Name (If you are not a PICT student enter college name)
+              College Name
             </label>
             <input
               className="w-full px-3 py-2 leading-tight border rounded shadow appearance-none bg-primaries-700 text-primaries-100 focus:outline-none focus:shadow-outline"
