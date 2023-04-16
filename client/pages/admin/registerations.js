@@ -148,6 +148,9 @@ const Registerations = () => {
                       {val.mobile_number}
                     </td>
                     <td className="px-2 py-2 text-base text-center border-2 border-gray-900">
+                      {val.country}
+                    </td>
+                    <td className="px-2 py-2 text-base text-center border-2 border-gray-900">
                       {val.type}
                     </td>
                     <td className="px-2 py-2 text-base text-center border-2 border-gray-900">
