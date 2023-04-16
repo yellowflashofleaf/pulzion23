@@ -111,6 +111,9 @@ const Registerations = () => {
                   Phone
                 </th>
                 <th className="px-2 py-2 text-base text-center border-2 border-gray-900">
+                  Country
+                </th>
+                <th className="px-2 py-2 text-base text-center border-2 border-gray-900">
                   Event type
                 </th>
                 <th className="px-2 py-2 text-base text-center border-2 border-gray-900">
