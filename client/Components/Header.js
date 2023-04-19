@@ -42,11 +42,11 @@ const Header = () => {
           text: "Team",
           to: "/team",
         },
-        {
-          id: 6,
-          text: "Glimpses",
-          to: "/glimpses",
-        },
+        // {
+        //   id: 6,
+        //   text: "Glimpses",
+        //   to: "/glimpses",
+        // },
         {
           id: 7,
           text: "Cart",
@@ -89,11 +89,11 @@ const Header = () => {
           text: "Team",
           to: "/team",
         },
-        {
-          id: 6,
-          text: "Glimpses",
-          to: "/glimpses",
-        },
+        // {
+        //   id: 6,
+        //   text: "Glimpses",
+        //   to: "/glimpses",
+        // },
       ]);
 
   const [open, setOpen] = useState(false);
