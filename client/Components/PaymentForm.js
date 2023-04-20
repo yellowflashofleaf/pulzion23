@@ -117,7 +117,7 @@ export default function PaymentForm(props) {
                 className="block text-lg font-bold text-primaries-100"
                 htmlFor="transaction_id"
               >
-                UPI Transaction Id <span className="block text-sm font-bold text-primaries-100">(UPI Reference Number)(PhonePe Users enter UTR number)</span>
+                UPI Transaction Id <span className="block text-sm font-bold text-primaries-100">(UPI Reference Number) <br/> (PhonePe Users enter UTR number)</span>
               </label>
               <input
                 className="w-full px-3 py-2 leading-tight border rounded shadow appearance-none bg-primaries-700 text-primaries-100 placeholder:text-primaries-100 focus:outline-none focus:shadow-outline"
@@ -136,10 +136,11 @@ export default function PaymentForm(props) {
               ) : null}
 
               <label
-                className="block mt-6 text-lg font-bold text-primaries-100"
+                className="block mt-6 font-bold whitespace-pre text-md text-primaries-100"
                 htmlFor="referal_code"
               >
-                Referal (Optional)
+                {/* Referral (Optional) */}
+                Are You Referred By Someone?
               </label>
 
               <select
@@ -151,7 +152,7 @@ export default function PaymentForm(props) {
                 onBlur={formik.handleBlur}
               >
                 <option value="NA" className="text-primaries-100">
-                  Add Referal Code
+                  Select Referrer
                 </option>
                 <option
                   value="Anish-PICT-Kachane"
