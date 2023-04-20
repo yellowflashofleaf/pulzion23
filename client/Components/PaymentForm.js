@@ -117,8 +117,7 @@ export default function PaymentForm(props) {
                 className="block text-lg font-bold text-primaries-100"
                 htmlFor="transaction_id"
               >
-                UPI Transaction Id (UPI Reference Number)
-                (PhonePe Users enter UTR number)
+                UPI Transaction Id <span className="block text-sm font-bold text-primaries-100">(UPI Reference Number)(PhonePe Users enter UTR number)</span>
               </label>
               <input
                 className="w-full px-3 py-2 leading-tight border rounded shadow appearance-none bg-primaries-700 text-primaries-100 placeholder:text-primaries-100 focus:outline-none focus:shadow-outline"
