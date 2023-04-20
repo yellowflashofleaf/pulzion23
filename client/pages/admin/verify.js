@@ -20,13 +20,7 @@ const VerifyPayments = () => {
       setData(res);
     })();
   }, []);
-  // const newFilters = [];
-  // data.forEach((val) => {
-  //   newFilters.push({
-  //     value: val.status,
-  //     label: val.status,
-  //   });
-  // });
+
   const options = [
     { value: "accepted", label: "accepted" },
     { value: "pending", label: "pending" },
@@ -122,6 +116,9 @@ const VerifyPayments = () => {
                 </th>
                 <th className="px-2 py-2 text-base text-center border-2 border-gray-900">
                   Referal
+                </th>                
+                <th className="px-2 py-2 text-base text-center border-2 border-gray-900">
+                  Contact No
                 </th>
               </tr>
               {visible &&
@@ -155,6 +152,9 @@ const VerifyPayments = () => {
                     </td>
                     <td className="px-2 py-2 text-base text-center border-2 border-gray-900">
                       {val.referal_code}
+                    </td>                   
+                     <td className="px-2 py-2 text-base text-center border-2 border-gray-900">
+                      {val.mobile_number}
                     </td>
                   </tr>
                 ))}
