@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import ConfirmationTooltip from '../ConfirmationTooltip'
 
-const ToolTipButton = ({ handleConfirm, text }) => {
+const ToolTipButton = ({loader, handleConfirm, text }) => {
   const [visible, setVisible] = useState(false);
   return (
     // <ConfirmationTooltip
@@ -12,8 +12,9 @@ const ToolTipButton = ({ handleConfirm, text }) => {
       <button
         className="px-5 py-2 tracking-wider text-white uppercase duration-500 ease-in-out rounded-md bg-primaries-800 hover:bg-primaries-500"
         onClick={handleConfirm}
+        id='cart_button'
       >
-        {text}
+      {text} {loader && <i class="fa fa-spinner fa-spin"></i>} 
       </button>
     // </ConfirmationTooltip>
   )

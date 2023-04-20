@@ -43,18 +43,24 @@ const EventModal = forwardRef(
     ref
   ) => {
     const [isVisible, setIsVisible] = useState(false);
+    const [loader,setLoader] = useState(false)
     const router = useRouter();
     const { dispatchEvents } = useContext(AppContext)
     const handleAddToCart = async () => {
       try {
+        setLoader(true)
         const data = await addItem(id)
         if(data?.error) {
           toast.error(data.error)
+          // document.getElementById("cart_button").appendChild()
+          setLoader(false)
           return
         }
+        setLoader(false)
         toast.success("Event added to cart")
       }catch(e) {
         console.log(e)
+        setLoader(false)
         toast.error("Something went wrong")
       }
     }
@@ -117,6 +123,7 @@ const EventModal = forwardRef(
         }}
         className="fixed top-0 left-0 w-screen min-h-screen backdrop-blur"
       >
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
         <div
           className="fixed w-11/12 max-w-xl text-white rounded-3xl shadow-[0px_0px_15px_5px] shadow-sky-700"
           style={{
@@ -250,10 +257,10 @@ const EventModal = forwardRef(
             ) : !alreadyRegistered && (
               <span>
               {
-                price > 0 ? (
-                  <ToolTipButton text={`Add to Cart`} handleConfirm={handleAddToCart} />
+                price > 0 ? (  
+                  <ToolTipButton loader={loader} text={`Add to Cart`} handleConfirm={handleAddToCart} />
                 ) : (
-                  <ToolTipButton text={`Register`} handleConfirm={handleRegister} />
+                  <ToolTipButton loader={loader} text={`Register`} handleConfirm={handleRegister} />
                 )
               }
               </span>

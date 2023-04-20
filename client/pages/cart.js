@@ -2,7 +2,6 @@ import Header from "../Components/Header";
 import { useEffect, useState } from "react";
 import { useCartContext } from "../context/CartContext";
 import privateUserRoute from "../routes/privateUserRoute";
-import { handlePayment } from "../action/payment.js";
 import Script from "next/script";
 import Layout from "../Components/Layout";
 import PaymentForm from "../Components/PaymentForm";
