@@ -60,7 +60,7 @@ export default function PaymentForm(props) {
         }}
       >
         <div className="flex flex-row items-center w-full px-5 py-6 overflow-hidden shadow-2xl bg-sky-700 bg-opacity-10 md:px-8 event_modal_title rounded-t-3xl">
-          <div className="sm:text-xl text-md whitespace-pre font-bold basis-1/2 md:text-2xl">
+          <div className="font-bold whitespace-pre sm:text-xl text-md basis-1/2 md:text-2xl">
             Registration Form
           </div>
           
@@ -117,7 +117,8 @@ export default function PaymentForm(props) {
                 className="block text-lg font-bold text-primaries-100"
                 htmlFor="transaction_id"
               >
-                UPI Transaction Id
+                UPI Transaction Id (UPI Reference Number)
+                (PhonePe Users enter UTR number)
               </label>
               <input
                 className="w-full px-3 py-2 leading-tight border rounded shadow appearance-none bg-primaries-700 text-primaries-100 placeholder:text-primaries-100 focus:outline-none focus:shadow-outline"
@@ -136,7 +137,7 @@ export default function PaymentForm(props) {
               ) : null}
 
               <label
-                className="block text-lg mt-6 font-bold text-primaries-100"
+                className="block mt-6 text-lg font-bold text-primaries-100"
                 htmlFor="referal_code"
               >
                 Referal (Optional)
