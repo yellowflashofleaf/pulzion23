@@ -1,7 +1,7 @@
 import axios from "axios";
 import apiConfig from "../configs/api";
 
-export const paymentForm = async (transaction_id, cart) => {
+export const paymentForm = async (transaction_id, referal_code, cart) => {
   const pulzion = JSON.parse(localStorage.getItem("pulzion"));
   let event_id = [];
   cart.map((item) => {
@@ -18,6 +18,7 @@ export const paymentForm = async (transaction_id, cart) => {
     data: {
       event_id,
       transaction_id,
+      referal_code,
     },
   };
   try {

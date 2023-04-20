@@ -13,7 +13,11 @@ export default function PaymentForm(props) {
 
   async function register(values) {
     try {
-      const data = await paymentForm(values.transaction_id, props.cart);
+      const data = await paymentForm(
+        values.transaction_id,
+        values.referal_code,
+        props.cart
+      );
       if (data?.error) {
         toast.error(data.error);
         return;
@@ -29,7 +33,7 @@ export default function PaymentForm(props) {
   }
 
   const formik = useFormik({
-    initialValues: { email: "", password: "" },
+    initialValues: { transaction_id: "", referal_code: "" },
     validationSchema: Yup.object({
       transaction_id: Yup.string().trim().required().label("Transaction Id"),
     }),
@@ -56,9 +60,10 @@ export default function PaymentForm(props) {
         }}
       >
         <div className="flex flex-row items-center w-full px-5 py-6 overflow-hidden shadow-2xl bg-sky-700 bg-opacity-10 md:px-8 event_modal_title rounded-t-3xl">
-          <div className="text-xl font-bold basis-1/2 md:text-2xl">
+          <div className="sm:text-xl text-md whitespace-pre font-bold basis-1/2 md:text-2xl">
             Registration Form
           </div>
+          
           <div
             className="hover:cursor-pointer relative left-[40%] sm:left-[45%] basis-1/2"
             onClick={props.close}
@@ -115,7 +120,7 @@ export default function PaymentForm(props) {
                 UPI Transaction Id
               </label>
               <input
-                className="w-full px-3 py-2 leading-tight border rounded shadow appearance-none bg-primaries-700 text-primaries-100 focus:outline-none focus:shadow-outline"
+                className="w-full px-3 py-2 leading-tight border rounded shadow appearance-none bg-primaries-700 text-primaries-100 placeholder:text-primaries-100 focus:outline-none focus:shadow-outline"
                 id="transaction_id"
                 name="transaction_id"
                 type="text"
@@ -129,6 +134,62 @@ export default function PaymentForm(props) {
                   {formik.errors.transaction_id}
                 </div>
               ) : null}
+
+              <label
+                className="block text-lg mt-6 font-bold text-primaries-100"
+                htmlFor="referal_code"
+              >
+                Referal (Optional)
+              </label>
+
+              <select
+                name="referal_code"
+                className="w-full px-3 py-2 mt-1 leading-tight border rounded shadow appearance-none bg-primaries-700 text-primaries-100 focus:outline-none focus:shadow-outline"
+                aria-label="Default select example"
+                value={formik.values.referal_code}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              >
+                <option value="NA" className="text-primaries-100">
+                  Add Referal Code
+                </option>
+                <option
+                  value="Anish-PICT-Kachane"
+                  className="text-primaries-100"
+                >
+                  Anish-PICT-Kachane
+                </option>
+                <option
+                  value="Kartik-PICT-Tickkule"
+                  className="text-primaries-100"
+                >
+                  Kartik-PICT-Tickkule
+                </option>
+                <option
+                  value="Aditi-PICT-Sakhalkar"
+                  className="text-primaries-100"
+                >
+                  Aditi-PICT-Sakhalkar
+                </option>
+                <option
+                  value="Soham-PICT-Kottawar"
+                  className="text-primaries-100"
+                >
+                  Soham-PICT-Kottawar
+                </option>
+                <option value="Amey-PICT-Joshi" className="text-primaries-100">
+                  Amey-PICT-Joshi
+                </option>
+                <option value="Omkar-PICT-Gade" className="text-primaries-100">
+                  Omkar-PICT-Gade
+                </option>
+                <option
+                  value="Gaurav-PICT-Waghmare"
+                  className="text-primaries-100"
+                >
+                  Gaurav-PICT-Waghmare
+                </option>
+              </select>
               <button
                 type="submit"
                 className="float-right mt-4 px-4 py-2 mb-2 w-[55%] text-center border-4 border-[#3a5f9d] hover:border-[#172947] text-primaries-100 rounded-xl"

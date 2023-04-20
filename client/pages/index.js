@@ -56,11 +56,12 @@ export default function Home() {
         />
       </Head>
       <div
-        className={` flex flex-col items-center justify-center pb-5 ${exploring ? "" : "relative"
-          }  `}
+        className={` flex flex-col items-center justify-center pb-5 ${
+          exploring ? "" : "relative"
+        }  `}
         style={{
           paddingTop: "10vh",
-          zIndex: 20
+          zIndex: 20,
         }}
       >
         <div
@@ -74,7 +75,7 @@ export default function Home() {
           </p>
           <img src="logo.png" className="w-full" />
           <p className="items-center justify-center my-5 text-2xl font-bold tracking-wide text-center text-primaries-100 md:text-3xl">
-            An annual techfest of PICT ACM Student Chapter
+            The annual techfest of PICT ACM Student Chapter
           </p>
           <div className="flex flex-row items-center justify-center gap-4 text-2xl font-bold md:gap-6 text-primaries-100 md:text-5xl">
             <IoCalendarOutline /> <p>3rd, 4th &amp; 5th May</p>
@@ -83,7 +84,21 @@ export default function Home() {
           <div className="flex flex-col gap-6 xl:mt-5 sm:flex sm:flex-row">
             <button
               class="primary-button"
-              style={{backgroundImage: "linear-gradient(to right, #172947c5, black)" ,opacity : 0.95, position:"relative", borderWidth: "2px", borderStyle: "solid", borderRadius: "550px", width: "250px", height: "48px", overflow: "hidden", backgroundColor: "transparent", textTransform: "uppercase", color:"white", fontWeight: "700px"}}
+              style={{
+                backgroundImage: "linear-gradient(to right, #172947c5, black)",
+                opacity: 0.95,
+                position: "relative",
+                borderWidth: "2px",
+                borderStyle: "solid",
+                borderRadius: "550px",
+                width: "250px",
+                height: "48px",
+                overflow: "hidden",
+                backgroundColor: "transparent",
+                textTransform: "uppercase",
+                color: "white",
+                fontWeight: "700px",
+              }}
               // className="bg-gradient-to-br from-[#172947c5] to-black opacity-95 relative border-2 border-solid rounded-[550px] w-[250px] h-[48px] overflow-hidden bg-transparent uppercase text-white text-sm font-bold"
               onClick={() =>
                 user?.id ? router.push("/events") : router.push("/register")
@@ -108,4 +123,3 @@ export default function Home() {
     </Layout>
   );
 }
-
