@@ -9,10 +9,13 @@ import PaymentForm from "../Components/PaymentForm";
 import SectionHeading from "../Components/SectionHeading";
 import { deleteFromCart, getEventFromCart } from "../action/cart";
 import { toast } from "react-toastify";
+import ContentLoader from "../Components/ContentLoader";
 
 const CartPage = () => {
   const [cart, setCart] = useState([]);
   const [visible, setVisible] = useState(false);
+  const [loading, setLoading] = useState(true);
+
   function open() {
     if (cart.length === 0) {
       toast.error("Cart is Empty");
@@ -26,8 +29,10 @@ const CartPage = () => {
       try {
         const res = await getEventFromCart();
         if (res?.error) {
+          setLoading(false)
           return;
         }
+        setLoading(false)
         setCart(res.events);
       } catch (e) {
         console.log(e);
@@ -42,7 +47,7 @@ const CartPage = () => {
 
   return (
     <Layout>
-      <div className="-z-10">
+      {loading ? <ContentLoader /> : <div className="-z-10">
         <h1 className="mt-[50px] text-3xl font-black text-center uppercase sm:text-4xl md:text-5xl text-sky-400 list-none">
           <SectionHeading>Events Cart</SectionHeading>
         </h1>
@@ -141,7 +146,7 @@ const CartPage = () => {
           setCart={setCart}
           amount={total}
         />
-      </div>
+      </div>} 
     </Layout>
   );
 };
