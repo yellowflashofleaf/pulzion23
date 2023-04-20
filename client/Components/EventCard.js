@@ -60,7 +60,10 @@ function EventCard(props) {
   // }
 
   const { addToCart } = useCartContext();
-
+  const handleOpen = () => {
+  document.querySelector("body").style.overflowY = "hidden"
+  modalRef?.current?.toggle()
+  }
   const fetchSlots = async () => {
     try {
       setLoading(true);
@@ -116,7 +119,7 @@ function EventCard(props) {
         )}
         <button
           className="my-4 buy"
-          onClick={() => modalRef?.current?.toggle()}
+          onClick={handleOpen}
         >
           View
         </button>

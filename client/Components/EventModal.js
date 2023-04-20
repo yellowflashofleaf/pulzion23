@@ -163,6 +163,7 @@ const EventModal = forwardRef(
               onClick={() => {
                 setSlots([]);
                 setIsVisible(false);
+                document.querySelector("body").style.overflowY = "auto"
               }}
             >
               <svg

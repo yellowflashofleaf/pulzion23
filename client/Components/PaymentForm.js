@@ -84,7 +84,7 @@ export default function PaymentForm(props) {
             </svg>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-between w-full gap-3 px-5 shadow-lg sm:py-6 sm:flex-row md:px-8 event_modal_title rounded-t-3xl">
+        <div className="flex flex-col items-center justify-between w-full gap-2 px-2 shadow-lg sm:py-6 sm:flex-row md:px-5 event_modal_title rounded-t-3xl">
           <div className="flex flex-col gap-1 mt-2 bg-white sm:h-auto rounded-xl">
             <QrCode
               className="p-2 pointer-events-none sm:p-4"
@@ -111,10 +111,10 @@ export default function PaymentForm(props) {
               />
             </div>
           </div>
-          <div className="h-[100%] sm:p-4">
+          <div className="h-[100%] sm:p-2">
             <form onSubmit={formik.handleSubmit}>
               <label
-                className="block text-lg font-bold text-primaries-100"
+                className="block mb-2 font-bold text-md text-primaries-100"
                 htmlFor="transaction_id"
               >
                 UPI Transaction Id <span className="block text-sm font-bold text-primaries-100">(UPI Reference Number) <br/> (PhonePe Users enter UTR number)</span>
@@ -136,7 +136,7 @@ export default function PaymentForm(props) {
               ) : null}
 
               <label
-                className="block mt-6 font-bold whitespace-pre text-md text-primaries-100"
+                className="block mt-6 font-bold text-md text-primaries-100"
                 htmlFor="referal_code"
               >
                 {/* Referral (Optional) */}
