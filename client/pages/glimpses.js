@@ -4,29 +4,9 @@ import Layout from "../Components/Layout";
 import Image from "next/image";
 import { SRLWrapper } from "simple-react-lightbox";
 import SectionHeading from "../Components/SectionHeading";
-import { getGallery } from "../action/gallery";
-import ContentLoader from "../Components/ContentLoader";
+import { images } from "../data/glimpsesGallery";
 
 const PreviousGlimpses = () => {
-  const [images, setImages] = useState([]);
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    const loadImages = async () => {
-      try {
-        const data = await getGallery();
-        if (data?.error) {
-          console.log(data.error);
-          setLoading(false);
-          return;
-        }
-        setImages(data.gallery);
-      } catch (e) {
-        console.log(e);
-      }
-      setLoading(false);
-    };
-    loadImages();
-  }, []);
 
   return (
     <Layout>
@@ -42,37 +22,31 @@ const PreviousGlimpses = () => {
 				and quizzing events."
         />
       </Head>
-      <div className="px-4 sm:px-8 md:px-12 lg:px-16 py-5 md:py-10">
+      <div className="px-4 py-5 sm:px-8 md:px-12 lg:px-16 md:py-10">
         <div className="flex justify-center mb-10">
           <SectionHeading>Glimpses of Events Conducted By PASC.</SectionHeading>
         </div>
-        {loading ? (
-          <ContentLoader />
-        ) : (
-          <SRLWrapper>
-            <div className="flex flex-wrap gap-6 justify-center">
-              {images.map((image) => {
-                return (
-                  image.Key.startsWith("thumbnail") && image.Size > 0 && (
-                    <a
-                      href={`https://pulzion-website-images.s3.ap-south-1.amazonaws.com/${image.Key}`}
-                      key={image.key}
-                    >
-                      <Image
-                        src={`https://pulzion-website-images.s3.ap-south-1.amazonaws.com/${image.Key}`}
-                        // alt={`gallery ${image.Key}`}
-                        width={400}
-                        height={300}
-                        className="rounded-xl shadow-xl"
-                        srl_gallery_image="true" // Add this if your thumbnail is not recognized
-                      />
-                    </a>
-                  )
-                )
-              })}
-            </div>
-          </SRLWrapper>
-        )}
+        <SRLWrapper>
+          <div className="flex flex-wrap justify-center gap-6">
+            {images.pulzion.map((image) => {
+              return (
+
+                <a
+                  href={image.thumbnail}
+                // key={image.key}
+                >
+                  <Image
+                    src={image.thumbnail}
+                    width={400}
+                    height={300}
+                    className="shadow-xl rounded-xl"
+                    srl_gallery_image="true" // Add this if your thumbnail is not recognized
+                  />
+                </a>
+              )
+            })}
+          </div>
+        </SRLWrapper>
       </div>
     </Layout>
   );
