@@ -50,7 +50,7 @@ export default function PaymentForm(props) {
   const formik = useFormik({
     initialValues: { transaction_id: "", referal_code: "" },
     validationSchema: Yup.object({
-      transaction_id: Yup.string().trim().required().label("Transaction Id"),
+      transaction_id: Yup.string().trim().required().min(12).max(12).label("Transaction Id"),
     }),
     onSubmit: register,
   });
