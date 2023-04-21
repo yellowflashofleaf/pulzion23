@@ -16,10 +16,10 @@ export const images = {
         "original": "https://pulzion-ems.s3.ap-south-1.amazonaws.com/original/20220424_200331.jpg",
         "thumbnail": "https://pulzion-ems.s3.ap-south-1.amazonaws.com/thumbnail/20220424_200331.jpg"
       },
-      {
-        "original": "https://pulzion-ems.s3.ap-south-1.amazonaws.com/original/360_F_412572270_OGw5hFLVwWoBCOdwWjLa1qGHsYU444PI.jpg",
-        "thumbnail": "https://pulzion-ems.s3.ap-south-1.amazonaws.com/thumbnail/360_F_412572270_OGw5hFLVwWoBCOdwWjLa1qGHsYU444PI.jpg"
-      },
+    //   {
+    //     "original": "https://pulzion-ems.s3.ap-south-1.amazonaws.com/original/360_F_412572270_OGw5hFLVwWoBCOdwWjLa1qGHsYU444PI.jpg",
+    //     "thumbnail": "https://pulzion-ems.s3.ap-south-1.amazonaws.com/thumbnail/360_F_412572270_OGw5hFLVwWoBCOdwWjLa1qGHsYU444PI.jpg"
+    //   },
       {
         "original": "https://pulzion-ems.s3.ap-south-1.amazonaws.com/original/4.jpg",
         "thumbnail": "https://pulzion-ems.s3.ap-south-1.amazonaws.com/thumbnail/4.jpg"
