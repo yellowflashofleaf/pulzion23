@@ -140,7 +140,7 @@ const TeamPage = () => {
       </Head>
       <div className="py-5 md:py-10">
         <SectionHeading>Meet Our Team</SectionHeading>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-20 justify-center items-center mt-20">
+        <div className="grid items-center justify-center grid-cols-1 mt-20 md:grid-cols-2 lg:grid-cols-3 gap-y-20">
           <ProfileCard
             className="col-span-full"
             name="Dr. Geetanjali Kale"
@@ -149,21 +149,7 @@ const TeamPage = () => {
             linkedin="https://www.linkedin.com/in/dr-geetanjali-kale-17148922/"
           />
         </div>
-        {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-y-20 justify-center items-center mt-20">
-          <ProfileCard
-            name="Ashutosh Shaha"
-            avatar="https://pulzion22.s3.ap-south-1.amazonaws.com/team/6Zr4VTa.jpg"
-            designation="Chairperson"
-            linkedin="https://www.linkedin.com/in/ashutosh-shaha/"
-          />
-          <ProfileCard
-            name="Siddhi Wakchaure"
-            avatar="https://pulzion22.s3.ap-south-1.amazonaws.com/team/wgo56lh.jpg"
-            designation="Vice Chairperson"
-            linkedin="https://www.linkedin.com/in/siddhi-wakchaure-98b147198/"
-          />
-        </div> */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-20 justify-center items-center mt-20">
+        <div className="grid items-center justify-center grid-cols-1 mt-20 md:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-20">
           {profiles.map((profile, index) => (
             <ProfileCard
               key={index}
