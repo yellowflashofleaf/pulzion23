@@ -1,15 +1,16 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styles from "../styles/sponsors.module.css";
 import SectionHeading from "./SectionHeading";
 
-export default function SponsorsCard({ 
+export default function SponsorsCard({
     id,
     name,
     imgUrl,
     type
- }) {
+}) {
     const [xRotation, setXRotation] = useState(0);
     const [yRotation, setYRotation] = useState(0);
+    const [ios, setIos] = useState(false);
     const cardRef = useRef(null);
     const imgRef = useRef(null);
     const titleRef = useRef(null);
@@ -33,6 +34,15 @@ export default function SponsorsCard({
         setYRotation(0);
     }
 
+    useEffect(() => {
+        var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        if (isIOS) {
+            setIos(true)
+        } else {
+            setIos(false)
+        }
+    })
+
     return (
 
         <div
@@ -41,8 +51,8 @@ export default function SponsorsCard({
             style={{
                 transform: `rotateX(${xRotation}deg) rotateY(${yRotation}deg)`,
             }}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
+            onMouseMove={!ios ? handleMouseMove : null}
+            onMouseLeave={!ios ? handleMouseLeave : null}
         >
             <img
                 ref={imgRef}
