@@ -99,7 +99,7 @@ const RegisterForm = (props) => {
   return (
     <>
       <form
-        className={`${styles.register_form} z-[9999999] bg-[#172947ba] shadow-md px-8 pt-6 pb-8 mb-4 h-full w-full`}
+        className={`${styles.register_form} bg-[#172947ba] shadow-md px-8 pt-6 pb-8 mb-4 h-full w-full`}
         onSubmit={formik.handleSubmit}
       >
         <h1 className={`${styles.hidden_h1} text-primaries-100 md:text-5xl text-xl my-6`}>
