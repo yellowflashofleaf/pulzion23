@@ -1,5 +1,5 @@
 const apiConfig = {
-  //url: "https://api.pulzion.co.in",
+  //url: "https://ems-test-server.onrender.com/",
   url: "https://staging.api.pulzion.co.in",
 };
 

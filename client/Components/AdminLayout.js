@@ -30,6 +30,11 @@ const links = [
     to: "/admin/verify",
     text: "Verify Payment",
   },
+  {
+    id: 6,
+    to: "/admin/mail",
+    text: "Admin Mail",
+  },
 ];
 
 const AdminLayout = ({ children }) => {
