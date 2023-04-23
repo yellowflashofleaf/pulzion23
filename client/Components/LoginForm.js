@@ -38,7 +38,7 @@ const LoginForm = (props) => {
   });
   return (<>
   <form className={`${styles.login_form} bg-[#172947ba] shadow-md px-8 pt-6 pb-8 mb-4 h-full w-full`} onSubmit={formik.handleSubmit}>
-      <h1 className={`${styles.hidden_h1} text-primaries-100 my-6 mx-auto`}>Welcome</h1>
+      <h1 className={`${styles.hidden_h1} text-primaries-100 md:text-5xl text-xl my-6 mx-auto`}>Welcome</h1>
       <div className="flex flex-col gap-2 mb-4">
         <label className="block text-lg font-bold tracking-wide text-primaries-100" htmlFor="email">Email Address</label>
         <input

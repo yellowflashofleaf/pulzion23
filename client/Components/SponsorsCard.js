@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
 import styles from "../styles/sponsors.module.css";
 import SectionHeading from "./SectionHeading";
-// import image from "../public/images/magic_flare.png";
 
 export default function SponsorsCard({ 
     id,
@@ -22,10 +21,10 @@ export default function SponsorsCard({
         const card = cardRef.current;
         const { offsetWidth: width, offsetHeight: height } = card;
         const { clientX, clientY } = event;
-        const x = clientX - card.offsetLeft - width / 2;
-        const y = clientY - card.offsetTop - height / 2;
+        const x = clientX - card.offsetLeft - width / 6;
+        const y = clientY - card.offsetTop - height / 6;
         var mult = 40;
-        setXRotation((y / height / 1.3) * mult);
+        setXRotation((y / height / 2) * mult);
         setYRotation((x / width / 2) * mult);
     }
 

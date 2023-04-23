@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import PhoneInput from "react-phone-input-2";
@@ -17,6 +17,7 @@ const RegisterForm = (props) => {
   const { dispatchUser } = useContext(AppContext);
   const [loading, setLoading] = useState(false);
   const [others, setOthers] = useState(true);
+  const [ios, setIos] = useState(false);
 
   const handleRegister = async (values) => {
     try {
@@ -85,13 +86,24 @@ const RegisterForm = (props) => {
     }),
     onSubmit: handleRegister,
   });
+
+  useEffect(()=> {
+    var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    if(isIOS) {
+      setIos(true)
+    } else {
+      setIos(false)
+    }
+  })
+
   return (
-    <>
+    <div className="bg-[#172947ba]">
       <form
-        className={`${styles.register_form} bg-[#172947ba] shadow-md px-8 pt-6 pb-8 mb-4 h-full w-full`}
+        className={`${!ios ? styles.register_form : "overflow-auto"} z-[9999999] bg-[#172947ba] shadow-md px-8 pt-6 pb-8 mb-4 h-full w-full`}
         onSubmit={formik.handleSubmit}
       >
-        <h1 className={`${styles.hidden_h1} text-primaries-100 my-6`}>
+        {console.log("ios",ios)}
+        <h1 className={`${styles.hidden_h1} text-primaries-100 md:text-5xl text-xl my-6`}>
           Welcome
         </h1>
         <div className="flex flex-col gap-2 mb-4">
@@ -370,13 +382,13 @@ const RegisterForm = (props) => {
         <button
           onClick={props.displayLogin}
           type="button"
-          className={`${styles.hidden_link} inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 my-6`}
+          className={`${!ios ? styles.hidden_link : ""} inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 my-6`}
         >
           Already have an account? Login
         </button>
       </form>
       {loading && <ContentLoader />}
-    </>
+    </div>
   );
 };
 

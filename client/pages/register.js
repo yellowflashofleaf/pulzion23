@@ -3,24 +3,34 @@ import Head from 'next/head';
 import LoginForm from "../Components/LoginForm";
 import RegisterForm from "../Components/RegisterForm";
 import Layout from "../Components/Layout";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "../styles/loginsignup.module.css"
 import publicRoute from "../routes/publicRoute";
 
 const LoginSignup = () => {
   const [login, setLogin] = useState(true);
+  const [ios, setIos] = useState(false);
 
   const displayLogin = (e) => {
-    document.querySelector(`.${styles.login_register_form}`).classList.remove(`${styles.rotate}`);
+    !ios ? document.querySelector(`.${styles.login_register_form}`).classList.remove(`${styles.rotate}`) : null
 
     setLogin(true);
   }
 
   const displayRegister = (e) => {
-    document.querySelector(`.${styles.login_register_form}`).classList.add(`${styles.rotate}`);
+    !ios && document.querySelector(`.${styles.login_register_form}`).classList.add(`${styles.rotate}`);
 
     setLogin(false);
   }
+
+  useEffect(()=> {
+    var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    if(isIOS) {
+      setIos(true)
+    } else {
+      setIos(false)
+    }
+  })
 
   return (
     <Layout>
@@ -62,7 +72,7 @@ const LoginSignup = () => {
                     
                   }
               </div>
-              <div className={`${styles.login_register_form} border border-primaries-600 rounded-r-md w-full lg:w-1/2 flex`}>
+              <div className={`${!ios ? styles.login_register_form : ""} border border-primaries-600 rounded-r-md w-full lg:w-1/2 flex`}>
                   {login ? <LoginForm displayRegister={displayRegister}/> : <RegisterForm displayLogin={displayLogin}/>}
               </div>
           </div>
