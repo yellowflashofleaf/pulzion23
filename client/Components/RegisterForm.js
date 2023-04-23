@@ -97,12 +97,11 @@ const RegisterForm = (props) => {
   })
 
   return (
-    <div className="bg-[#172947ba]">
+    <>
       <form
-        className={`${!ios ? styles.register_form : "overflow-auto"} z-[9999999] bg-[#172947ba] shadow-md px-8 pt-6 pb-8 mb-4 h-full w-full`}
+        className={`${styles.register_form} z-[9999999] bg-[#172947ba] shadow-md px-8 pt-6 pb-8 mb-4 h-full w-full`}
         onSubmit={formik.handleSubmit}
       >
-        {console.log("ios",ios)}
         <h1 className={`${styles.hidden_h1} text-primaries-100 md:text-5xl text-xl my-6`}>
           Welcome
         </h1>
@@ -388,7 +387,7 @@ const RegisterForm = (props) => {
         </button>
       </form>
       {loading && <ContentLoader />}
-    </div>
+    </>
   );
 };
 

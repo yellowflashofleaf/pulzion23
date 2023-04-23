@@ -72,7 +72,7 @@ const LoginSignup = () => {
                     
                   }
               </div>
-              <div className={`${!ios ? styles.login_register_form : ""} border border-primaries-600 rounded-r-md w-full lg:w-1/2 flex`}>
+              <div className={`${styles.login_register_form} border border-primaries-600 rounded-r-md w-full lg:w-1/2 flex`}>
                   {login ? <LoginForm displayRegister={displayRegister}/> : <RegisterForm displayLogin={displayLogin}/>}
               </div>
           </div>
