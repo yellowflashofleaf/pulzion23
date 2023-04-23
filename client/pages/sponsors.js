@@ -25,18 +25,32 @@ export default function Home() {
       "id": 2,
       "name": "Postman",
       "imgUrl": "./postman.png",
-      "type": "Workshop Sponsor",
+      "type": "Workshop Partner",
 
     },
     {
       "id": 3,
+      "name": "Interview Buddy",
+      "imgUrl": "./InterviewBuddy_Logo2.png",
+      "type": "Education Partner",
+
+    },
+    {
+      "id": 4,
+      "name": "Give My Certificate",
+      "imgUrl": "./GMC LogoS.png",
+      "type": "Certificate Partner",
+
+    },
+    {
+      "id": 5,
       "name": "Nestle",
       "imgUrl": "./nestle.png",
       "type": "Refreshment Partner",
 
     },
     {
-      "id": 4,
+      "id": 6,
       "name": "Budhani Bros",
       "imgUrl": "./budhani2.png",
       "type": "Snack Partner",
