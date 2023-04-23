@@ -17,24 +17,32 @@ export default function Home() {
     {
       "id": 1,
       "name": "Jamboree",
-      "imgUrl": "./jamboree.jpg",
+      "imgUrl": "./jamboree_white8.png",
       "type": "Event Sponsor",
 
     },
     {
       "id": 2,
-      "name": "Nestle",
-      "imgUrl": "./nestle.png",
-      "type": "Refreshment Sponsor",
-
-    },
-    {
-      "id": 3,
       "name": "Postman",
       "imgUrl": "./postman.png",
       "type": "Workshop Sponsor",
 
+    },
+    {
+      "id": 3,
+      "name": "Nestle",
+      "imgUrl": "./nestle.png",
+      "type": "Refreshment Partner",
+
+    },
+    {
+      "id": 4,
+      "name": "Budhani Bros",
+      "imgUrl": "./budhani2.png",
+      "type": "Snack Partner",
+
     }
+    
   ];
 
   return (
@@ -44,14 +52,14 @@ export default function Home() {
       </Head>
       <div className="container py-8 mx-auto">
         <SectionHeading children={"Sponsors"} />
-        <div className="flex items-center justify-center mt-24">
+        <div className="flex items-center justify-center mt-10">
           <SponsorsCard  
                 name = "Magicflare"
                 imgUrl = "./magicflare.png"
                 type = "Title Sponsor"
           />
         </div>
-        <div className="flex flex-wrap items-center justify-around w-full h-full py-24">
+        <div className="flex flex-wrap items-center justify-around w-full h-full py-2">
           {
             sponsors.map((sponsor) => {
               return (
