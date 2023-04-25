@@ -30,7 +30,7 @@ export default function Home() {
         className={` flex flex-col items-center justify-center pb-5 ${exploring ? "" : "relative"
           }  `}
         style={{
-          paddingTop: "10vh",
+          paddingTop: "8vh",
           zIndex: 20,
         }}
       >
