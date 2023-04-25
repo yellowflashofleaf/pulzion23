@@ -1,4 +1,4 @@
-import React, { useContext, useReducer, useRef, useState } from "react";
+import React, { useContext, useEffect, useReducer, useRef, useState } from "react";
 import { toast } from "react-toastify";
 import { registerEvent } from "../action/registeration";
 import { bookSlot, getSlots } from "../action/slots";
@@ -10,6 +10,8 @@ import cartReducer from "../reducers/cartReducer";
 import { cartEvent } from "../reducers/cartReducer";
 import { addToCart } from "../action/cart";
 import { useCartContext } from "../context/CartContext.js";
+import { useRouter } from 'next/router'
+import { GrView } from "react-icons/gr"
 
 function EventCard(props) {
   const modalRef = useRef();
@@ -31,38 +33,22 @@ function EventCard(props) {
   const registeredEvent = alreadyRegistered
     ? contEvents.find((item) => item.id === props.id)
     : undefined;
-  // const handleRegister = async () => {
-  //   if (user.type === "admin") {
-  //     toast.error("You are logged in as admin");
-  //     return;
-  //   }
-  //   try {
-  //     setLoading(true);
-  //     const data = await registerEvent(props.id, dispatchEvents);
-  //     if (data?.error) {
-  //       toast.error(data.error);
-  //       setLoading(false);
-  //       return;
-  //     }
-  //     toast.success("Registration Successful");
-  //   } catch (e) {
-  //     console.log(e);
-  //     toast.error("Something Went Wrong");
-  //   }
-  //   setLoading(false);
-  // };
+  const router = useRouter()
 
-  // function handleAddToCart() {
-  //   if (user.type === "admin") {
-  //     toast.error("You are logged in as admin");
-  //     return;
-  //   }
-  // }
+  useEffect(() => {
+    const handleRouteChange = (url, { shallow }) => {
+      document.querySelector("body").style.overflowY = "auto"
+    }
+    router.events.on('routeChangeStart', handleRouteChange)
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChange)
+    }
+  }, [router])
 
   const { addToCart } = useCartContext();
   const handleOpen = () => {
-  document.querySelector("body").style.overflowY = "hidden"
-  modalRef?.current?.toggle()
+    document.querySelector("body").style.overflowY = "hidden"
+    modalRef?.current?.toggle()
   }
   const fetchSlots = async () => {
     try {
@@ -102,94 +88,36 @@ function EventCard(props) {
   };
 
   return (
-    <div className="flex flex-col items-center py-5 card bg-primaries-800">
-      <div className="imgBox">
-        <img src={props.logo} alt={props.name} />{" "}
+    <div className="flex flex-col justify-center items-center">
+      <div className={`animated z-[2] top-24 w-[170px] sm:w-[210px] sm:h-[210px] h-[170px]`}>
+        <img src={props.logo} alt={props.name} className="event-logo"
+          style={{
+            padding: "30px"
+          }}
+        />{" "}
       </div>
-
-      <div className="mt-8 contentBox">
-        <h2 className="event_title">{props.name}</h2>
-        <h3 className="mt-2 text-center event_tagline">{props.tagline}</h3>
-        {registeredEvent?.fk_slot && (
-          <h3 className="mt-2 text-center event_tagline">
-            {displayDate(registeredEvent.start_time)}{" "}
-            {displayFormat(registeredEvent.start_time)} -{" "}
-            {displayFormat(registeredEvent.end_time)}
-          </h3>
-        )}
-        <button
-          className="my-4 buy"
-          onClick={handleOpen}
+      <div className="">
+        <div className="xl:w-[100%] -z-0 sm:w-full cards h-[350px] xl:h-[400px] py-5 bg-gradient-to-br from-[#172947c5] to-black"
         >
-          View
-        </button>
-      </div>
-
-      {/* <div class="relative max-w-md mx-auto md:max-w-2xl mt-6 min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-xl mt-16">
-        <div class="px-6">
-          <div class="flex flex-wrap justify-center">
-            <div class="w-full flex justify-center">
-              <div class="relative">
-                <img
-                  src={props.logo}
-                  alt={props.name}
-                  class="shadow-xl rounded-full align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-[150px]"
-                />
-              </div>
-            </div>
-            <div class="w-full text-center mt-20">
-              <div class="flex justify-center lg:pt-4 pt-8 pb-0">
-                <div class="p-3 text-center">
-                  <span class="text-xl font-bold block uppercase tracking-wide text-slate-700">
-                    3,360
-                  </span>
-                  <span class="text-sm text-slate-400">Photos</span>
-                </div>
-                <div class="p-3 text-center">
-                  <span class="text-xl font-bold block uppercase tracking-wide text-slate-700">
-                    2,454
-                  </span>
-                  <span class="text-sm text-slate-400">Followers</span>
-                </div>
-
-                <div class="p-3 text-center">
-                  <span class="text-xl font-bold block uppercase tracking-wide text-slate-700">
-                    564
-                  </span>
-                  <span class="text-sm text-slate-400">Following</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="text-center mt-2">
-            <h3 class="text-2xl text-slate-700 font-bold leading-normal mb-1">
-              Mike Thompson
-            </h3>
-            <div class="text-xs mt-0 mb-2 text-slate-400 font-bold uppercase">
-              <i class="fas fa-map-marker-alt mr-2 text-slate-400 opacity-75"></i>
-              Paris, France
-            </div>
-          </div>
-          <div class="mt-6 py-6 border-t border-slate-200 text-center">
-            <div class="flex flex-wrap justify-center">
-              <div class="w-full px-4">
-                <p class="font-light leading-relaxed text-slate-600 mb-4">
-                  An artist of considerable range, Mike is the name taken by
-                  Melbourne-raised, Brooklyn-based Nick Murphy writes, performs
-                  and records all of his own music, giving it a warm.
-                </p>
-                <a
-                  href="javascript:;"
-                  class="font-normal text-slate-700 hover:text-slate-400"
-                >
-                  Follow Account
-                </a>
-              </div>
-            </div>
+          <div className="p-10 w-[100%] h-[350px] xl:h-[400px] gap-4 -top-5 flex flex-col justify-center items-center">
+              <h2 className="text-white mt-20 text-center font-bold uppercase tracking-wider text-xl">{props.name}</h2>
+              <h3 className="text-center text-white font-medium tracking-wider text-lg">{props.tagline}</h3>
+              {registeredEvent?.fk_slot && (
+                <h3 className="mt-2 text-center">
+                  {displayDate(registeredEvent.start_time)}{" "}
+                  {displayFormat(registeredEvent.start_time)} -{" "}
+                  {displayFormat(registeredEvent.end_time)}
+                </h3>
+              )}
+              <button
+                className="relative mt-auto mb-3 py-2 px-6 text-black no-underline bg-[#03d3f0] text-center rounded-full uppercase tracking-wide"
+                onClick={handleOpen}
+              >
+                View
+              </button>
           </div>
         </div>
-      </div> */}
-
+      </div>
       <EventModal
         title={props.name}
         // title="Electroquest"

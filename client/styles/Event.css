@@ -2,56 +2,59 @@
   position: relative;
   height: 100%;
   width: 100%;
-  border-radius: 15%;
   overflow: hidden;
   transition: all 0.5s ease-in-out;
-
-  /* backdrop-filter: blur(8px) saturate(200%); */
-  /* -webkit-backdrop-filter: blur(8px) saturate(200%); */
   background-color: rgba(23, 41, 71, 0.73);
-  border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.125);
 }
 
-/* .card::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  width: 100%;
-  height: 100%;
-  background: #0c4a6e;
-  transform: skewY(345deg);
-  transition: all 0.5s ease-in-out;
-} */
-
-/* .card:hover::before {
-  top: -70%;
-  transform: skewY(390deg);
-  transition: all 0.5s ease-in-out;
-} */
-
 .card .imgBox {
   position: relative;
-  width: 175px;
-  height: 175px;
-  display: flex;
   justify-content: center;
   align-items: center;
   padding: 30px;
   border-radius: 100%;
-  /* background: linear-gradient(345deg, #191919, #0c4a6e);
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.4); */
+  display: inline-block;
+  background: #fff;
+  margin: 20px;
   z-index: 5;
   transition: all 0.5s ease-in-out;
 }
 
-.imgBox img {
-  width: 100%;
+.card .imgBox::before,
+.card .imgBox::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #f00;
+  transition: 0.5s;
+  background: linear-gradient(142deg,#03d3f0,transparent,transparent,transparent,#03d3f0);
 }
 
-.card:hover .imgBox {
-  background: linear-gradient(390deg, #191919, #0c4a6e);
-  transition: all 0.5s ease-in-out;
+.card .imgBox::before{
+  inset: -3px;
+}
+
+.card .imgBox::after{
+  inset: -3px;
+  filter: blur(10px);
+}
+
+.card .imgBox img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  background: #002f64;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: 1px solid #002f64;
+  overflow: hidden;
 }
 
 .card .contentBox {
@@ -154,4 +157,103 @@
   color: #fff;
   background-color: #1b1e1f;
   margin: 20px 0.4rem 0;
+}
+
+
+.animated {
+  position: relative;
+  display: inline-block;
+  border-radius: 100%;
+  padding: 20px;
+  background-image: linear-gradient(to bottom right, #172947c5, black);
+}
+
+.animated::before,
+.animated::after {
+  content: "";
+  position: absolute;
+  inset: 4;
+  transition: 0.5s;
+  border-radius: 100%;
+  background: linear-gradient(142deg,#03d3f0,transparent,transparent,transparent,#03d3f0);
+}
+
+.animated::before{
+  inset: -3px;
+  border-radius: 100%;
+}
+
+.animated::after{
+  inset: 3px;
+  filter: blur(10px);
+  border-radius: 100%;
+  background-image: linear-gradient(to bottom right, #172947c5, black);
+}
+
+.event-logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  overflow: hidden;
+}
+
+.contain::after {
+  clip-path: polygon(10px 0,0 10px,0 100%,95% 100%,100% 94%,100% 0);
+  position: absolute;
+  background: white;
+  width: 2000px;
+  height: 20000px;
+} 
+
+.contain::before {
+  clip-path: polygon(10px 0,0 10px,0 100%,95% 100%,100% 94%,100% 0);
+  position: absolute;
+  background: white;
+  width: 2000px;
+  height: 20000px;
+}
+
+.cards {
+  position: relative;
+  display: inline-block;
+  background-image: linear-gradient(to bottom right, #172947c5, black);
+  top: 0;
+}
+
+.cards::before,
+.cards::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #f00;
+  transition: 0.5s;
+  background: linear-gradient(33deg,#03d3f0,transparent,transparent,transparent,#03d3f0);
+}
+
+.cards::before{
+  inset: -3px;
+}
+
+.cards::after{
+  inset: -3px;
+  filter: blur(10px);
+}
+
+.cards div {
+  position: relative;
+  display: inline-block;
+  background-image: linear-gradient(to bottom right, #172947c5, black);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: 1px solid #002f64;
+  overflow: hidden;
 }

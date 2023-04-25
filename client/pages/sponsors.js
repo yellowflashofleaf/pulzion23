@@ -4,14 +4,8 @@ import Sponsors from "../Components/Sponsors";
 import { IoCall } from "react-icons/io5";
 import SponsorsCard from "../Components/SponsorsCard";
 import SectionHeading from "../Components/SectionHeading";
-// import Test from '../Components/Test'
 
 export default function Home() {
-
-  //   Magicflare: Title Sponsor
-  // Jambore: Event Sponsor
-  // Nestle: Refreshment Sponsor
-  // Postman: Workshop Partner
 
   const sponsors = [
     {
@@ -69,7 +63,7 @@ export default function Home() {
         <div className="flex items-center justify-center mt-10">
           <SponsorsCard  
                 name = "Magicflare"
-                imgUrl = "./magicflare.png"
+                imgUrl = "./magicflare_sponsors.png"
                 type = "Title Sponsor"
           />
         </div>

@@ -1,76 +1,11 @@
-/* .animate::after {
-    content: '';
-    position: absolute;
-    inset: 0px;
-    background: linear-gradient(142deg, #ff2b01c5,#17294756,#17294756,#17294756, #17294756, #ff2b01c5);
-    z-index: -1;
-}
 
-.animate::before {
-    content: "";
-    position: absolute;
-    inset: 0px;
-    background: linear-gradient(142deg, #ff2b01c5,#17294756,#17294756,#17294756, #17294756, #ff2b01c5);
-    border: #ff0015 10 solid;
-    z-index: -1;
-}
-
-.register::after {
-    content: '';
-    position: absolute;
-    inset: 0px;
-    background: linear-gradient(142deg, #ff2b01c5,#17294756,#17294756,#17294756, #17294756, #ff2b01c5);
-    z-index: -1;
-}
-
-.register::before {
-    content: "";
-    position: absolute;
-    inset: 0px;
-    background: linear-gradient(142deg, #ff2b01c5,#17294756,#17294756,#17294756, #17294756, #ff2b01c5);
-    border: #ff0015 10 solid;
-    z-index: -1;
-} */
-
-@keyframes slide-in {
-    0% {
-        transform: translateX(200px);
-        /* background-color: transparent; */
-    }
-
-    /* 50% {
-      transform: translateX(200px);
-      background-color: transparent;
-    }
-    100% {
-      transform: translateX(0);
-      background-color: transparent;
-    } */
-}
-
-@keyframes slide-reg {
-    0% {
-        transform: translateX(0px);
-        width: 50px;
-        /* background-color: transparent; */
-    }
-
-    /* 50% {
-      transform: translateX(200px);
-      background-color: transparent;
-    }
-    100% {
-      transform: translateX(50px);
-      background-color: transparent;
-    } */
-}
 
 .animated {
     position: relative;
     width: 250px;
     height: 48px;
     display: inline-block;
-    background: #fff;
+    background-image: linear-gradient(to bottom right, #172947c5, black);
     margin: 20px;
 }
 
@@ -79,7 +14,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: #f00;
+    background-image: linear-gradient(to bottom right, #172947c5, black);
     transition: 0.5s;
     background: linear-gradient(142deg,#03d3f0,transparent,transparent,transparent,#03d3f0);
 }
@@ -100,7 +35,7 @@
     width: 100%;
     height: 100%;
     display: inline-block;
-    background: #002f64;
+    background-image: linear-gradient(to bottom right, #172947c5, black);
     z-index: 10;
     display: flex;
     justify-content: center;

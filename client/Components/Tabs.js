@@ -162,9 +162,6 @@ class TabContent extends React.Component {
         {this.props?.data?.length === 0 &&
           this.props.router?.pathname === "/my_events" && (
             <div className="flex flex-col items-center justify-center w-full gap-4 mt-10 md:mt-20 md:gap-8">
-              {/* {({ isVisible }) => (
-                
-              )} */}
               <p className="text-3xl font-bold text-center md:text-5xl text-primaries-100">
                 Registered Events will be visible after verification.
               </p>
@@ -184,7 +181,7 @@ class TabContent extends React.Component {
           >
             <img src={headerImg.src} alt="Header Img" />
           </div> */}
-        <div className="grid items-center justify-center grid-cols-1 mt-10 md:grid-cols-2 lg:grid-cols-3 gap-y-10 gap-x-10">
+        <div className="grid items-center justify-center grid-cols-1 mt-10 md:grid-cols-2 xl:grid-cols-3 gap-y-10 gap-x-10">
           {this.props.data?.map((event, index) => (
             <EventCard key={index} {...event} />
           ))}
