@@ -58,17 +58,7 @@ const VerifyPayments = () => {
     link.click();
   };
 
-  // function onchange(e) {
-  //   setSelected((preValue) => [
-  //       ...preValue,
-  //       visible.filter((val,idx) => val.user_id == e.target.id && val.event_id == e.target.value)
-  //   ])
-  //   // console.log("Id",(e.target.id).map((id)=>console.log(id)))
-  // }
-
-  // function verifyUser() {
-
-  // }
+ 
 
   return (
     <AdminLayout>
@@ -116,7 +106,7 @@ const VerifyPayments = () => {
                 </th>
                 <th className="px-2 py-2 text-base text-center border-2 border-gray-900">
                   Referal
-                </th>                
+                </th>
                 <th className="px-2 py-2 text-base text-center border-2 border-gray-900">
                   Contact No
                 </th>
@@ -152,8 +142,8 @@ const VerifyPayments = () => {
                     </td>
                     <td className="px-2 py-2 text-base text-center border-2 border-gray-900">
                       {val.referal_code}
-                    </td>                   
-                     <td className="px-2 py-2 text-base text-center border-2 border-gray-900">
+                    </td>
+                    <td className="px-2 py-2 text-base text-center border-2 border-gray-900">
                       {val.mobile_number}
                     </td>
                   </tr>
