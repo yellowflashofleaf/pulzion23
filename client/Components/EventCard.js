@@ -88,7 +88,7 @@ function EventCard(props) {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col items-center justify-center">
       <div className={`animated z-[2] top-24 w-[170px] sm:w-[210px] sm:h-[210px] h-[170px]`}>
         <img src={props.logo} alt={props.name} className="event-logo"
           style={{
@@ -96,12 +96,12 @@ function EventCard(props) {
           }}
         />{" "}
       </div>
-      <div className="">
+      <div className="w-full">
         <div className="xl:w-[100%] -z-0 sm:w-full cards h-[350px] xl:h-[400px] py-5 bg-gradient-to-br from-[#172947c5] to-black"
         >
           <div className="p-10 w-[100%] h-[350px] xl:h-[400px] gap-4 -top-5 flex flex-col justify-center items-center">
-              <h2 className="text-white mt-20 text-center font-bold uppercase tracking-wider text-xl">{props.name}</h2>
-              <h3 className="text-center text-white font-medium tracking-wider text-lg">{props.tagline}</h3>
+              <h2 className="mt-20 text-xl font-bold tracking-wider text-center text-white uppercase">{props.name}</h2>
+              <h3 className="text-lg font-medium tracking-wider text-center text-white">{props.tagline}</h3>
               {registeredEvent?.fk_slot && (
                 <h3 className="mt-2 text-center">
                   {displayDate(registeredEvent.start_time)}{" "}
@@ -110,7 +110,7 @@ function EventCard(props) {
                 </h3>
               )}
               <button
-                className="relative mt-auto mb-3 py-2 px-6 text-black no-underline bg-[#03d3f0] text-center rounded-full uppercase tracking-wide"
+                className="relative mt-auto mb-3 py-2 px-6 text-black no-underline bg-[#03d3f0] hover:font-bold text-center rounded-full uppercase tracking-wide"
                 onClick={handleOpen}
               >
                 View
