@@ -12,11 +12,13 @@ import axios from "axios";
 export default function PaymentForm(props) {
   const router = useRouter();
   const [data, setData] = useState([]);
-  const [loader,setLoader] = useState(false)
+  const [loader, setLoader] = useState(false);
 
   useEffect(() => {
     (async () => {
-      const res = await axios.get("https://pulzion-ems.s3.ap-south-1.amazonaws.com/referal/referal.json");
+      const res = await axios.get(
+        "https://pulzion-ems.s3.ap-south-1.amazonaws.com/referal/referal.json"
+      );
       console.log("in referal", res.data);
       setData(res.data.refreal);
     })();
@@ -24,25 +26,25 @@ export default function PaymentForm(props) {
 
   async function register(values) {
     try {
-      setLoader(true)
+      setLoader(true);
       const data = await paymentForm(
         values.transaction_id,
         values.referal_code,
         props.cart
       );
       if (data?.error) {
-        setLoader(false)
+        setLoader(false);
         toast.error(data.error);
         return;
       }
       await clearCart();
       props.setCart([]);
-      setLoader(false)
+      setLoader(false);
       toast.success("Transaction has been sent for verification");
       router.push("/orders");
     } catch (error) {
       console.log(error);
-      setLoader(false)
+      setLoader(false);
       toast.error("Something went wrong");
     }
   }
@@ -50,7 +52,12 @@ export default function PaymentForm(props) {
   const formik = useFormik({
     initialValues: { transaction_id: "", referal_code: "" },
     validationSchema: Yup.object({
-      transaction_id: Yup.string().trim().required().min(12).max(12).label("Transaction Id"),
+      transaction_id: Yup.string()
+        .trim()
+        .required()
+        .min(12)
+        .max(12)
+        .label("Transaction Id"),
     }),
     onSubmit: register,
   });
@@ -76,8 +83,8 @@ export default function PaymentForm(props) {
       >
         <div className="flex flex-row items-center w-full px-5 py-6 overflow-hidden shadow-2xl bg-sky-700 bg-opacity-10 md:px-8 event_modal_title rounded-t-3xl">
           <div className="font-bold whitespace-pre sm:text-xl text-md basis-1/2 md:text-2xl">
-            Registration Form          
-            </div>
+            Registration Form
+          </div>
 
           <div
             className="hover:cursor-pointer relative left-[40%] sm:left-[45%] basis-1/2"
@@ -132,7 +139,10 @@ export default function PaymentForm(props) {
                 className="block mb-2 font-bold text-md text-primaries-100"
                 htmlFor="transaction_id"
               >
-                UPI Transaction Id <span className="block text-sm font-bold text-primaries-100">(UPI Reference Number) <br /> (PhonePe Users enter UTR number)</span>
+                UPI Transaction Id{" "}
+                <span className="block text-sm font-bold text-primaries-100">
+                  (UPI Reference Number) <br /> (PhonePe Users enter UTR number)
+                </span>
               </label>
               <input
                 className="w-full px-3 py-2 leading-tight border rounded shadow appearance-none bg-primaries-700 text-primaries-100 placeholder:text-primaries-100 focus:outline-none focus:shadow-outline"
@@ -166,28 +176,22 @@ export default function PaymentForm(props) {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               >
-                <option
-                      value="NA"
-                      className="text-primaries-100"
-                    >
-                      Select referrer
-                    </option>
-                {
-                  data.map((item) => {
-                    return <option
-                      value={item.code}
-                      className="text-primaries-100"
-                    >
+                <option value="NA" className="text-primaries-100">
+                  Select referrer
+                </option>
+                {data.map((item) => {
+                  return (
+                    <option value={item.code} className="text-primaries-100">
                       {item.code}
                     </option>
-                  })
-                }
+                  );
+                })}
               </select>
               <button
                 type="submit"
                 className="float-right mt-4 px-4 py-2 mb-2 w-[55%] text-center border-4 border-[#3a5f9d] hover:border-[#172947] text-primaries-100 rounded-xl"
               >
-                Register {loader && <i class="fa fa-spinner fa-spin"></i>} 
+                Register {loader && <i class="fa fa-spinner fa-spin"></i>}
               </button>
             </form>
           </div>
