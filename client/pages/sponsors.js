@@ -10,41 +10,48 @@ export default function Home() {
   const sponsors = [
     {
       "id": 1,
+      "name": "Mithi Softwares",
+      "imgUrl": "./mithi_new.png",
+      "type": "Associate Sponsor",
+
+    },
+    {
+      "id": 2,
       "name": "Jamboree",
       "imgUrl": "./jamboree_white8.png",
       "type": "Event Sponsor",
 
     },
     {
-      "id": 2,
+      "id": 3,
       "name": "Postman",
       "imgUrl": "./postman.png",
       "type": "Workshop Partner",
 
     },
     {
-      "id": 3,
+      "id": 4,
       "name": "Interview Buddy",
       "imgUrl": "./InterviewBuddy_Logo2.png",
       "type": "Education Partner",
 
     },
     {
-      "id": 4,
+      "id": 5,
       "name": "Give My Certificate",
       "imgUrl": "./GMC LogoS.png",
       "type": "Certificate Partner",
 
     },
     {
-      "id": 5,
+      "id": 6,
       "name": "Nestle",
       "imgUrl": "./nestle.png",
       "type": "Refreshment Partner",
 
     },
     {
-      "id": 6,
+      "id": 7,
       "name": "Budhani Bros",
       "imgUrl": "./budhani2.png",
       "type": "Snack Partner",
@@ -63,7 +70,7 @@ export default function Home() {
         <div className="flex items-center justify-center mt-10">
           <SponsorsCard  
                 name = "Magicflare"
-                imgUrl = "./magicflare_sponsors.png"
+                imgUrl = "./magicflare_sponsors_new.png"
                 type = "Title Sponsor"
           />
         </div>
