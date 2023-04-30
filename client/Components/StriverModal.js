@@ -5,6 +5,11 @@ import { IoCloseSharp } from "react-icons/io5";
 const StriverModal = ({ isVisible, setIsVisible }) => {
   const router = useRouter();
   const onApp = router.pathname === '/sponsors/app' || router.pathname === '/privacy_policy/app'
+  if(isVisible) {
+    document.querySelector("body").style.overflowY = "hidden"
+  } else {
+    document.querySelector("body").style.overflowY = "auto"
+  }
   return (
     <div
       style={{
@@ -40,10 +45,10 @@ const StriverModal = ({ isVisible, setIsVisible }) => {
           e.stopPropagation();
         }}
       >
-        <img class="object-cover" src={"/images/striver.jpeg"} />
+        <img class="object-cover" src={"guest_speaker.png"} />
         <div className="flex flex-col items-center justify-center mt-5 rounded-b-3xl">
           <a
-            href="https://striver.pulzion.in"
+            href="https://arsh.pulzion.co.in"
             className="px-5 py-2 mb-3 tracking-wider text-white uppercase duration-500 ease-in-out rounded-md bg-primaries-500"
           >
             Register Now
