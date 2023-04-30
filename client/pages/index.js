@@ -40,7 +40,7 @@ export default function Home() {
           {/* <p className="text-3xl font-bold tracking-wide text-center text-primaries-100 md:text-5xl">
             PICT ACM Student Chapter
           </p> */}
-          <img src="magicflare.png" className="w-40"/>
+          <img src="magicflare.png" alt="magic flare" className="w-40"/>
           <p className="text-lg italic font-normal text-center text-primaries-100 md:text-xl">
             presents
           </p>
@@ -57,10 +57,10 @@ export default function Home() {
                 user?.id ? router.push("/events") : router.push("/register")
               }
             >            
-              <span className="italic text-xl tracking-normal">{user?.id ? "Register For Events" : "Register Now"}</span>
+              <span className="text-xl italic tracking-normal">{user?.id ? "Register For Events" : "Register Now"}</span>
             </button>
             <button className={`${styles.animated}`} onClick={() => setExploring(() => !exploring)}>
-              <span className="italic text-xl tracking-normal">{exploring ? " Go back Main Page" : "Explore"}</span>
+              <span className="text-xl italic tracking-normal">{exploring ? " Go back Main Page" : "Explore"}</span>
             </button>
           </div>
         </div>
