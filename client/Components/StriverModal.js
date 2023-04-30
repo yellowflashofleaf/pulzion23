@@ -5,11 +5,7 @@ import { IoCloseSharp } from "react-icons/io5";
 const StriverModal = ({ isVisible, setIsVisible }) => {
   const router = useRouter();
   const onApp = router.pathname === '/sponsors/app' || router.pathname === '/privacy_policy/app'
-  if(isVisible) {
-    document.querySelector("body").style.overflowY = "hidden"
-  } else {
-    document.querySelector("body").style.overflowY = "auto"
-  }
+  
   return (
     <div
       style={{
