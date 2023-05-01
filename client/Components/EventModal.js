@@ -51,8 +51,7 @@ const EventModal = forwardRef(
         setLoader(true)
         const data = await addItem(id)
         if(data?.error) {
-          toast.error(data.error)
-          // document.getElementById("cart_button").appendChild()
+          toast.error(data.error)          
           setLoader(false)
           return
         }
@@ -88,6 +87,8 @@ const EventModal = forwardRef(
       },
       []
     );
+
+    const closedEvents = [18,7,14,15,16,6]
 
     const tabs = [
       {
@@ -132,15 +133,9 @@ const EventModal = forwardRef(
             transform: "translate(-50%,-50%)",
             pointerEvents: "all",
             height: "90vh",
-            // backgroundImage : `${modal_gradient_class},url("Modal_BG.jpeg")`,
-
-            // backgroundImage : 'linear-gradient(to bottom, hsla(0, 0%, 0%, 0) 19%,hsla(0, 0%, 0%, 0.009) 20.7%,hsla(0, 0%, 0%, 0.034) 27.1%,hsla(0, 0%, 0%, 0.072) 40.2%,hsla(0, 0%, 0%, 0.123) 48.4%,hsla(0, 0%, 0%, 0.182) 55.6%,hsla(0, 0%, 0%, 0.249) 60.1%,hsla(0, 0%, 0%, 0.320) 65.9%,hsla(0, 0%, 0%, 0.394) 75.3%,hsla(0, 0%, 0%, 0.468) 80.3%,hsla(0, 0%, 0%, 0.540) 85.1%,hsla(0, 0%, 0%, 0.607) 90.8%,hsla(0, 0%, 0%, 0.668) 95.6%,hsla(0, 0%, 0%, 0.721) 97.7%,hsla(0, 0%, 0%, 0.762) 99.1%,hsla(0, 0%, 0%, 0.790) 100%), url("Modal_BG.jpeg")',
-
             backgroundImage : 'url("Modal_BG.jpeg")',
             backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            // backgroundColor : "linear-gradient(to bottom,hsla(0, 0%, 0%, 0) 0%,hsla(0, 0%, 0%, 0.009) 11.7%,hsla(0, 0%, 0%, 0.034) 22.1%,hsla(0, 0%, 0%, 0.072) 31.2%,hsla(0, 0%, 0%, 0.123) 39.4%,hsla(0, 0%, 0%, 0.182) 46.6%,hsla(0, 0%, 0%, 0.249) 53.1%,hsla(0, 0%, 0%, 0.320) 58.9%,hsla(0, 0%, 0%, 0.394) 64.3%,hsla(0, 0%, 0%, 0.468) 69.3%,hsla(0, 0%, 0%, 0.540) 74.1%,hsla(0, 0%, 0%, 0.607) 78.8%,hsla(0, 0%, 0%, 0.668) 83.6%,hsla(0, 0%, 0%, 0.721) 88.7%,hsla(0, 0%, 0%, 0.762) 94.1%,hsla(0, 0%, 0%, 0.790) 100%)"
-            // backgroundColor : "whitesmoke"
+            backgroundSize: "cover",            
           }}
         >
           {loading && <ContentLoader />}
@@ -258,22 +253,15 @@ const EventModal = forwardRef(
               <span>
               {
                 price > 0 ? (  
-                  <ToolTipButton loader={loader} text={`Add to Cart`} handleConfirm={handleAddToCart} />
+                  <ToolTipButton loader={loader} text={closedEvents.includes(id) ? "Event Closed" :`Add to Cart`} handleConfirm={closedEvents.includes(id) ? ()=> {toast.error("Registration for this event has been Closed")} : handleAddToCart} />
                 ) : (
                   <ToolTipButton loader={loader} text={`Register`} handleConfirm={handleRegister} />
                 )
               }
               </span>
             )}
-            {/* {!alreadyRegistered && (
-              <ToolTipButton
-                text="Add to Cart"
-                handleConfirm={handleAddToCart}
-              />
-            )} */}
             {
               isLoggedIn && alreadyRegistered && (
-              // alreadyRegistered && (
                 <div className="flex flex-wrap items-center justify-center gap-2">
                   {!registeredEvent?.fk_slot && (
                     <button

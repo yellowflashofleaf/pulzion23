@@ -118,7 +118,8 @@ function EventCard(props) {
           </div>
         </div>
       </div>
-      <EventModal
+      {console.log("props",props.id)}
+      <EventModal        
         title={props.name}
         // title="Electroquest"
         play={props.play}

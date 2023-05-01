@@ -4,46 +4,6 @@ import PrimaryButton from "./Button/PrimaryButton";
 import EventCard from "./EventCard";
 import headerImg from "../public/astronaut.svg";
 
-// import TrackVisibility from "react-on-screen";
-// const events = [
-//   {
-//     name: "Just Coding",
-//     logo: "/JustCoding.png",
-//     type: "Technical",
-//     tagline: "while( ! succeed == try() ){keepCoding();}",
-//   },
-//   {
-//     name: "Bug Off",
-//     logo: "/BugOff.png",
-//     type: "Technical",
-//     tagline: "Where there is a code, there is a bug!",
-//   },
-//   {
-//     name: "Just Coding",
-//     logo: "/JustCoding.png",
-//     type: "Technical",
-//     tagline: "while( ! succeed == try() ){keepCoding();}",
-//   },
-//   {
-//     name: "Bug Off",
-//     logo: "/BugOff.png",
-//     type: "Non Technical",
-//     tagline: "Where there is a code, there is a bug!",
-//   },
-//   {
-//     name: "Just Coding",
-//     logo: "/JustCoding.png",
-//     type: "Non Technical",
-//     tagline: "while( ! succeed == try() ){keepCoding();}",
-//   },
-//   {
-//     name: "Bug Off",
-//     logo: "/BugOff.png",
-//     type: "Technical",
-//     tagline: "Where there is a code, there is a bug!",
-//   },
-// ];
-
 const Tabs = ({ events }) => {
   console.log("IN TABS");
   console.log(events);
@@ -78,49 +38,6 @@ const Tabs = ({ events }) => {
     </div>
   );
 };
-
-// class Tabs extends React.Component {
-//   constructor() {
-//     super();
-//     this.state = {
-//       activeTab: 0,
-//       data: this.props.events,
-//     };
-
-//     this.tabs = ["All", "Technical", "Non Technical"];
-
-//     this.changeTabOnClick = this.changeTabOnClick.bind(this);
-//   }
-
-//   changeTabOnClick(index) {
-//     let data = [];
-//     if (index == 0) {
-//       data = events;
-//     } else if (index == 1) {
-//       data = events.filter((event) => event.type === "Technical");
-//     } else {
-//       data = events.filter((event) => event.type === "Non Technical");
-//     }
-//     this.setState({
-//       activeTab: index,
-//       data: data,
-//     });
-//   }
-
-//   render() {
-//     return (
-//       <div className="tabs-body">
-//         <TabHeader
-//           data={this.tabs}
-//           click={this.changeTabOnClick}
-//           tabs={this.tabs}
-//           activeId={this.state.activeTab}
-//         />
-//         <TabContent data={this.state.data} activeId={this.state.activeTab} />
-//       </div>
-//     );
-//   }
-// }
 
 class TabHeader extends React.Component {
   doClick(index, event) {
