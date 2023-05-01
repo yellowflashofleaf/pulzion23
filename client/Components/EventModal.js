@@ -5,7 +5,10 @@ import React, {
   useRef,
   useContext,
 } from "react";
-import { event_modal_desc, modal_gradient_class } from "../styles/event_modal.module.css";
+import {
+  event_modal_desc,
+  modal_gradient_class,
+} from "../styles/event_modal.module.css";
 import { useRouter } from "next/router";
 import ToolTipButton from "./Button/ToolTipButton";
 import { IoGlobeSharp } from "react-icons/io5";
@@ -38,44 +41,44 @@ const EventModal = forwardRef(
       handleBook,
       registeredEvent,
       setSlots,
-      price
+      price,
     },
     ref
   ) => {
     const [isVisible, setIsVisible] = useState(false);
-    const [loader,setLoader] = useState(false)
+    const [loader, setLoader] = useState(false);
     const router = useRouter();
-    const { dispatchEvents } = useContext(AppContext)
+    const { dispatchEvents } = useContext(AppContext);
     const handleAddToCart = async () => {
       try {
-        setLoader(true)
-        const data = await addItem(id)
-        if(data?.error) {
-          toast.error(data.error)          
-          setLoader(false)
-          return
+        setLoader(true);
+        const data = await addItem(id);
+        if (data?.error) {
+          toast.error(data.error);
+          setLoader(false);
+          return;
         }
-        setLoader(false)
-        toast.success("Event added to cart")
-      }catch(e) {
-        console.log(e)
-        setLoader(false)
-        toast.error("Something went wrong")
+        setLoader(false);
+        toast.success("Event added to cart");
+      } catch (e) {
+        console.log(e);
+        setLoader(false);
+        toast.error("Something went wrong");
       }
-    }
+    };
     const handleRegister = async () => {
       try {
-        const data = await userRegisterEvent(id, dispatchEvents)
-        if(data?.error) {
-          toast.error(data.error)
-          return
+        const data = await userRegisterEvent(id, dispatchEvents);
+        if (data?.error) {
+          toast.error(data.error);
+          return;
         }
-        toast.success("Successfully registered!")
-      }catch(e) {
-        console.log(e)
-        toast.error("Something went wrong")
+        toast.success("Successfully registered!");
+      } catch (e) {
+        console.log(e);
+        toast.error("Something went wrong");
       }
-    }
+    };
     useImperativeHandle(
       ref,
       () => {
@@ -88,7 +91,7 @@ const EventModal = forwardRef(
       []
     );
 
-    const closedEvents = [18,7,15,16,6]
+    const closedEvents = [18, 7, 14, 15, 16, 6];
 
     const tabs = [
       {
@@ -124,7 +127,10 @@ const EventModal = forwardRef(
         }}
         className="fixed top-0 left-0 w-screen min-h-screen backdrop-blur"
       >
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        ></link>
         <div
           className="fixed w-11/12 max-w-xl text-white rounded-3xl shadow-[0px_0px_15px_5px] shadow-sky-700"
           style={{
@@ -133,9 +139,9 @@ const EventModal = forwardRef(
             transform: "translate(-50%,-50%)",
             pointerEvents: "all",
             height: "90vh",
-            backgroundImage : 'url("Modal_BG.jpeg")',
+            backgroundImage: 'url("Modal_BG.jpeg")',
             backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",            
+            backgroundSize: "cover",
           }}
         >
           {loading && <ContentLoader />}
@@ -157,7 +163,7 @@ const EventModal = forwardRef(
                     ? " (Round 1: Online Round 2: Offline)"
                     : ""}
                 </p>
-              <p className="font-bold text-md md:text-xl">₹{price}</p>
+                <p className="font-bold text-md md:text-xl">₹{price}</p>
               </div>
             </div>
             <div
@@ -165,7 +171,7 @@ const EventModal = forwardRef(
               onClick={() => {
                 setSlots([]);
                 setIsVisible(false);
-                document.querySelector("body").style.overflowY = "auto"
+                document.querySelector("body").style.overflowY = "auto";
               }}
             >
               <svg
@@ -249,42 +255,60 @@ const EventModal = forwardRef(
               >
                 Login/SignUp to Register
               </button>
-            ) : !alreadyRegistered && (
-              <span>
-              {
-                price > 0 ? (  
-                  <ToolTipButton loader={loader} text={closedEvents.includes(id) ? "Event Closed" :`Add to Cart`} handleConfirm={closedEvents.includes(id) ? ()=> {toast.error("Registration for this event has been Closed")} : handleAddToCart} />
-                ) : (
-                  <ToolTipButton loader={loader} text={`Register`} handleConfirm={handleRegister} />
-                )
-              }
-              </span>
-            )}
-            {
-              isLoggedIn && alreadyRegistered && (
-                <div className="flex flex-wrap items-center justify-center gap-2">
-                  {!registeredEvent?.fk_slot && (
-                    <button
-                      className="px-5 py-2 tracking-wider text-white uppercase duration-500 ease-in-out rounded-md bg-primaries-800 hover:bg-primaries-500"
-                      onClick={
-                        slots?.length > 0 ? () => setSlots([]) : fetchSlots
+            ) : (
+              !alreadyRegistered && (
+                <span>
+                  {price > 0 ? (
+                    <ToolTipButton
+                      loader={loader}
+                      text={
+                        closedEvents.includes(id)
+                          ? "Event Closed"
+                          : `Add to Cart`
                       }
-                    >
-                      {slots?.length > 0 ? "Cancel" : "Book Slot"}
-                    </button>
+                      handleConfirm={
+                        closedEvents.includes(id)
+                          ? () => {
+                              toast.error(
+                                "Registration for this event has been Closed"
+                              );
+                            }
+                          : handleAddToCart
+                      }
+                    />
+                  ) : (
+                    <ToolTipButton
+                      loader={loader}
+                      text={`Register`}
+                      handleConfirm={handleRegister}
+                    />
                   )}
-                  {play && (
-                    <a
-                      className="px-5 py-2 tracking-wider text-white uppercase duration-500 ease-in-out rounded-md bg-primaries-800 hover:bg-primaries-500"
-                      href={link}
-                      target="_blank"
-                    >
-                      Play
-                    </a>
-                  )}
-                </div>
+                </span>
               )
-            }
+            )}
+            {isLoggedIn && alreadyRegistered && (
+              <div className="flex flex-wrap items-center justify-center gap-2">
+                {!registeredEvent?.fk_slot && (
+                  <button
+                    className="px-5 py-2 tracking-wider text-white uppercase duration-500 ease-in-out rounded-md bg-primaries-800 hover:bg-primaries-500"
+                    onClick={
+                      slots?.length > 0 ? () => setSlots([]) : fetchSlots
+                    }
+                  >
+                    {slots?.length > 0 ? "Cancel" : "Book Slot"}
+                  </button>
+                )}
+                {play && (
+                  <a
+                    className="px-5 py-2 tracking-wider text-white uppercase duration-500 ease-in-out rounded-md bg-primaries-800 hover:bg-primaries-500"
+                    href={link}
+                    target="_blank"
+                  >
+                    Play
+                  </a>
+                )}
+              </div>
+            )}
           </div>
         </div>
       </div>
