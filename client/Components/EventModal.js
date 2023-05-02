@@ -91,7 +91,7 @@ const EventModal = forwardRef(
       []
     );
 
-    const closedEvents = [18, 7, 14, 15, 16, 6, 8];
+    const closedEvents = [18, 7, 14, 15, 16, 6, 8, 1];
 
     const tabs = [
       {
