@@ -301,7 +301,7 @@ const EventModal = forwardRef(
                 {play && (
                   <a
                     className="px-5 py-2 tracking-wider text-white uppercase duration-500 ease-in-out rounded-md bg-primaries-800 hover:bg-primaries-500"
-                    href={link}
+                    href={id===1 ? "https://www.codechef.com/CDLS2023" : link}
                     target="_blank"
                   >
                     Play
