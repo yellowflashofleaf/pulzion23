@@ -430,20 +430,20 @@ const Layout = ({ children }) => {
   }, []);
   const [loader, setLoader] = useState(true)
 
-  // useEffect(() => {
-  //   var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-  //   if (isIOS && router.pathname !== "/") {
-  //     document.getElementById("bg_video") !== null && document.getElementById("bg_video").remove();
-  //     document.getElementById("bg") !== null && document.getElementById("bg").appendChild(document.getElementById("bg_image"));
-  //     setLoader(false)
-  //   } else {
-  //     document.getElementById("bg_image") !== null && document.getElementById("bg_image").remove();
-  //     const video = document.getElementById("bg_video")
-  //     video?.addEventListener("loadeddata", () => {
-  //       setLoader(false);
-  //     });
-  //   }
-  // },)
+  useEffect(() => {
+    var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    if (isIOS && router.pathname !== "/") {
+      document.getElementById("bg_video") !== null && document.getElementById("bg_video").remove();
+      document.getElementById("bg") !== null && document.getElementById("bg").appendChild(document.getElementById("bg_image"));
+      setLoader(false)
+    } else {
+      document.getElementById("bg_image") !== null && document.getElementById("bg_image").remove();
+      const video = document.getElementById("bg_video")
+      video?.addEventListener("loadeddata", () => {
+        setLoader(false);
+      });
+    }
+  },)
 
 
 
@@ -501,7 +501,7 @@ const Layout = ({ children }) => {
                 <source src="Cart_bg.mp4" type="video/mp4" />
               </video>
               
-              {/* <img id="bg_image" src="space_bg.jpg" className="h-[100%] w-[100%] -z-1"/> */}
+              <img id="bg_image" src="space_bg.jpg" className="h-[100%] w-[100%] -z-1"/>
             </div>
           )}
 
