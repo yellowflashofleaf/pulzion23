@@ -358,34 +358,10 @@ const Layout = ({ children }) => {
 
       for (let [name, properties] of Object.entries(planets)) {
         createPlanet(name, properties.radius, properties.orbitRadius);
-      }
-
-      // orbits.forEach(orbit => orbit.visible = !orbit.visible);
+      }    
 
       currentNode = planetNodes[5];
       activeCamera = camera;
-
-      //     gui camera view changing
-      // planetNodes.forEach(function(node, i) {
-      //     $(`#${node.name}-button`).on('click', () => {
-      //         activeCamera = node.camera;
-      //         currentNode = node;
-      //         $('.active-button').removeClass("active-button");
-      //         $(`#${node.name}-button`).addClass('active-button');
-      //     })
-      // });
-      // $('#main-button').on('click', () => {
-      //     activeCamera = camera;
-      //     $('.active-button').removeClass("active-button");
-      //     $('#main-button').addClass('active-button');
-      // });
-
-      // //     gui orbit lines toggle
-      // $('#lines-button').on('click', () => {
-      //     if($('#lines-button').hasClass("visible")) $('#lines-button').removeClass('visible');
-      //     else $('#lines-button').addClass("visible");
-      //     orbits.forEach(orbit => orbit.visible = !orbit.visible);
-      // })
     }
 
     function animate() {
@@ -454,20 +430,20 @@ const Layout = ({ children }) => {
   }, []);
   const [loader, setLoader] = useState(true)
 
-  useEffect(() => {
-    var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-    if (isIOS && router.pathname !== "/") {
-      document.getElementById("bg_video") !== null && document.getElementById("bg_video").remove();
-      document.getElementById("bg") !== null && document.getElementById("bg").appendChild(document.getElementById("bg_image"));
-      setLoader(false)
-    } else {
-      document.getElementById("bg_image") !== null && document.getElementById("bg_image").remove();
-      const video = document.getElementById("bg_video")
-      video?.addEventListener("loadeddata", () => {
-        setLoader(false);
-      });
-    }
-  },)
+  // useEffect(() => {
+  //   var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+  //   if (isIOS && router.pathname !== "/") {
+  //     document.getElementById("bg_video") !== null && document.getElementById("bg_video").remove();
+  //     document.getElementById("bg") !== null && document.getElementById("bg").appendChild(document.getElementById("bg_image"));
+  //     setLoader(false)
+  //   } else {
+  //     document.getElementById("bg_image") !== null && document.getElementById("bg_image").remove();
+  //     const video = document.getElementById("bg_video")
+  //     video?.addEventListener("loadeddata", () => {
+  //       setLoader(false);
+  //     });
+  //   }
+  // },)
 
 
 
@@ -525,7 +501,7 @@ const Layout = ({ children }) => {
                 <source src="Cart_bg.mp4" type="video/mp4" />
               </video>
               
-              <img id="bg_image" src="space_bg.jpg" className="h-[100%] w-[100%] -z-1"/>
+              {/* <img id="bg_image" src="space_bg.jpg" className="h-[100%] w-[100%] -z-1"/> */}
             </div>
           )}
 
