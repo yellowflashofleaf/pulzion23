@@ -11,14 +11,14 @@ const TeamPage = () => {
     {
       name: "Aditi Chavan",
       avatar:
-        "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/chair.jpg",
+        "https://pulzion-ems.s3.ap-south-1.amazonaws.com/team/aditi.jpg",
       designation: "Chairperson",
       linkedin: "https://www.linkedin.com/in/aditi-chavan-439b44206",
     },
     {
       name: "Om Shinde",
       avatar:
-        "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/Vice+chair.png",
+        "https://pulzion-ems.s3.ap-south-1.amazonaws.com/team/Om+Shinde.png",
       designation: "Vice Chairperson",
 
       linkedin: "https://www.linkedin.com/in/om-shinde-0aabb1207",
@@ -26,7 +26,7 @@ const TeamPage = () => {
     {
       name: "Tejas Padhiyar",
       avatar:
-        "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/secretary.jpg",
+        "https://pulzion-ems.s3.ap-south-1.amazonaws.com/team/secretary.jpg",
       designation: "Secretary",
 
       linkedin: "https://www.linkedin.com/in/tejas-padhiyar",
@@ -34,7 +34,7 @@ const TeamPage = () => {
     {
       name: "Shivani Makde",
       avatar:
-        "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/treasurer.jpeg",
+        "https://pulzion-ems.s3.ap-south-1.amazonaws.com/team/Shivani.jpeg",
       designation: "Treasurer",
 
       linkedin: "https://www.linkedin.com/in/shivani-makde",
@@ -42,7 +42,7 @@ const TeamPage = () => {
     {
       name: "Amar Dalvi",
       avatar:
-        "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/PRO.jpg",
+        "https://pulzion-ems.s3.ap-south-1.amazonaws.com/team/amar.jpg",
       designation: "Public Relations Officer",
 
       linkedin: "https://www.linkedin.com/in/amar-dalvi-ba5b36208",
@@ -51,7 +51,7 @@ const TeamPage = () => {
       name: "Pratham More",
 
       avatar:
-        "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/TechHead1.jpg",
+        "https://pulzion-ems.s3.ap-south-1.amazonaws.com/team/Pratham+More.jpg",
       designation: "Technical Head",
 
       linkedin: "https://www.linkedin.com/in/pratham-more-7688571b5/",
@@ -59,7 +59,7 @@ const TeamPage = () => {
     {
       name: "Suyog Kokaje",
       avatar:
-        "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/TechHead2.jpg",
+        "https://pulzion-ems.s3.ap-south-1.amazonaws.com/team/suyog.jpg",
       designation: "Technical Head",
 
       linkedin: "https://www.linkedin.com/in/suyog-kokaje-bb54aa212/",
@@ -67,7 +67,7 @@ const TeamPage = () => {
     {
       name: "Yash Kalavadiya",
       avatar:
-        "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/web.png",
+        "https://pulzion-ems.s3.ap-south-1.amazonaws.com/team/Yash+Kalavadiya.png",
       designation: "Domain Director (Web & DevOps)",
 
       linkedin: "https://www.linkedin.com/in/yash-kalavadiya-789141170/",
@@ -75,7 +75,7 @@ const TeamPage = () => {
     {
       name: "Yash Sonawane",
       avatar:
-        "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/CP.JPG",
+        "https://pulzion-ems.s3.ap-south-1.amazonaws.com/team/yash_sonawane.JPG",
       designation: "Domain Director (Competitive Programming)",
 
       linkedin: "https://www.linkedin.com/in/yash-sonawane-a49870202",
@@ -84,7 +84,7 @@ const TeamPage = () => {
       name: "Mokshad Vaidya",
 
       avatar:
-        "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/App.jpeg",
+        "https://pulzion-ems.s3.ap-south-1.amazonaws.com/team/Mokshad+Vaidya.jpeg",
       designation: "Domain Director (App)",
 
       linkedin: "https://www.linkedin.com/in/mokshadvaidya",
@@ -93,7 +93,7 @@ const TeamPage = () => {
       name: "Aishwarya Mirashi",
 
       avatar:
-        "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/Ml.jpg",
+        "https://pulzion-ems.s3.ap-south-1.amazonaws.com/team/aishwarya.jpg",
       designation: "Domain Director (ML & AI)",
 
       linkedin: "https://www.linkedin.com/in/aishwarya-mirashi-620534215",
@@ -103,7 +103,7 @@ const TeamPage = () => {
       name: "Dheeraj Maske",
 
       avatar:
-        "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/marketing.jpeg",
+        "https://pulzion-ems.s3.ap-south-1.amazonaws.com/team/dheeraj.jpeg",
       designation: "Marketing Head",
 
       linkedin: "https://www.linkedin.com/in/dheeraj-maske-b47343200",
@@ -111,14 +111,14 @@ const TeamPage = () => {
     {
       name: "Akanksha Waghmare",
       avatar:
-        "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/creative2.jpg",
+        "https://pulzion-ems.s3.ap-south-1.amazonaws.com/team/Akanksha.jpg",
       designation: "Creative Head",
       linkedin: "https://www.linkedin.com/in/akanksha-waghmare-b53394224",
     },
     {
       name: "Prasenjeet Sonawane",
       avatar:
-        "https://pulzion-website-images.s3.ap-south-1.amazonaws.com/team/creative1.png",
+        "https://pulzion-ems.s3.ap-south-1.amazonaws.com/team/jeet.png",
       designation: "Creative Head",
       linkedin: "https://www.linkedin.com/in/prasenjeet-sonawane-856b23205/",
     },
