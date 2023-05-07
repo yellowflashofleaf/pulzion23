@@ -56,6 +56,12 @@ export default function Home() {
       "imgUrl": "./budhani2.png",
       "type": "Snack Partner",
 
+    },
+    {
+      "id": 8,
+      "name": "Smoodh Lassi",
+      "imgUrl": "./smoodh_lassi.jpg",
+      "type": "Refreshment Partner",
     }
     
   ];
