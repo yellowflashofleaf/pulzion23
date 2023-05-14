@@ -5,7 +5,7 @@ import ContentLoader from "../Components/ContentLoader";
 import Layout from "../Components/Layout";
 import SectionHeading from "../Components/SectionHeading";
 import Tabs from "../Components/Tabs";
-// import * as eventDetails from "../data/eventDetails";
+import * as eventDetails from "../data/eventDetails";
 import pilot from "../public/pilot.svg";
 
 function event() {
@@ -41,25 +41,30 @@ function event() {
   }, []);
 
   useEffect(() => {
-    const fetchEvents = async () => {
-      try {
-        // const data = eventDetails.eventD;
-        const data = await getAllEvents();
-        if (data?.error) {
-          console.log(data.error);
-          setLoading(false);
-          return;
-        }
-        // if (!data) {
-        //   setLoading(false);
-        //   return;
-        // }
-        setEvents(data.events);
-      } catch (e) {
-        console.log(e);
-      }
+    // const fetchEvents = async () => {
+    //   try {
+    //     // const data = eventDetails.eventD;
+    //     const data = await getAllEvents();
+    //     if (data?.error) {
+    //       console.log(data.error);
+    //       setLoading(false);
+    //       return;
+    //     }
+    //     // if (!data) {
+    //     //   setLoading(false);
+    //     //   return;
+    //     // }
+    //     setEvents(data.events);
+    //   } catch (e) {
+    //     console.log(e);
+    //   }
+    //   setLoading(false);
+    // };
+    const fetchEvents = () => {
+      const data = eventDetails.eventD;
+      setEvents(data)
       setLoading(false);
-    };
+    }
     fetchEvents();
   }, [setEvents]);
 
@@ -77,7 +82,7 @@ function event() {
 				and quizzing events."
         />
       </Head>
-      <div className=" events   px-4 py-5 sm:px-8 md:px-12 lg:px-16 md:py-10">
+      <div className="px-4 py-5 events sm:px-8 md:px-12 lg:px-16 md:py-10">
         {/* <object
           type="image/svg+xml"
           data="https://cdn.svgator.com/images/2021/10/animated-astronaut-illustration.svg"
